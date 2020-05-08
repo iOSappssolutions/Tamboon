@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2209141D24656AE900481B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209141C24656AE900481B27 /* AppDelegate.swift */; };
 		2209141F24656AE900481B27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209141E24656AE900481B27 /* SceneDelegate.swift */; };
-		2209142124656AE900481B27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209142024656AE900481B27 /* ContentView.swift */; };
+		2209142124656AE900481B27 /* CharitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209142024656AE900481B27 /* CharitiesView.swift */; };
 		2209142324656AEA00481B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2209142224656AEA00481B27 /* Assets.xcassets */; };
 		2209142624656AEA00481B27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2209142524656AEA00481B27 /* Preview Assets.xcassets */; };
 		2209142924656AEA00481B27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2209142724656AEA00481B27 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		2209144A24656C7900481B27 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209144724656C7900481B27 /* APICall.swift */; };
 		2209144B24656C7900481B27 /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209144824656C7900481B27 /* NetworkingHelpers.swift */; };
 		2209144C24656C7900481B27 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209144924656C7900481B27 /* WebRepository.swift */; };
-		2209144F2465733100481B27 /* Charities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209144E2465733100481B27 /* Charities.swift */; };
+		2209144F2465733100481B27 /* CharitiesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209144E2465733100481B27 /* CharitiesResponse.swift */; };
 		220914512465738C00481B27 /* Charity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914502465738C00481B27 /* Charity.swift */; };
 		220914532465757700481B27 /* DonationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914522465757700481B27 /* DonationResponse.swift */; };
 		2209145C2465783800481B27 /* DonationsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209145B2465783800481B27 /* DonationsAPI.swift */; };
@@ -33,6 +33,16 @@
 		2209146F2465A58600481B27 /* TamboonCharitiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209146E2465A58600481B27 /* TamboonCharitiesAPI.swift */; };
 		220914712465A83400481B27 /* DonationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914702465A83400481B27 /* DonationViewModel.swift */; };
 		220914732465A84200481B27 /* CharitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914722465A84200481B27 /* CharitiesViewModel.swift */; };
+		220914752465AFBA00481B27 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914742465AFBA00481B27 /* Message.swift */; };
+		2209147A2465BCD500481B27 /* TamboonDC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914772465BA0F00481B27 /* TamboonDC.swift */; };
+		2209147C2465C2F900481B27 /* NoCharityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209147B2465C2F900481B27 /* NoCharityView.swift */; };
+		2209147E2465C3DD00481B27 /* CharityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209147D2465C3DD00481B27 /* CharityList.swift */; };
+		220914802465C5E200481B27 /* CharityRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209147F2465C5E200481B27 /* CharityRow.swift */; };
+		220914842465C76000481B27 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914822465C76000481B27 /* LoadingView.swift */; };
+		220914852465C76000481B27 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914832465C76000481B27 /* URLImage.swift */; };
+		220914892465C81900481B27 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914882465C81900481B27 /* ImageLoader.swift */; };
+		2209148C2465C89800481B27 /* View+loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209148B2465C89800481B27 /* View+loading.swift */; };
+		2209148F2465D6D400481B27 /* DonationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209148E2465D6D400481B27 /* DonationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +73,7 @@
 		2209141924656AE900481B27 /* Tamboon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamboon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2209141C24656AE900481B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2209141E24656AE900481B27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2209142024656AE900481B27 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2209142024656AE900481B27 /* CharitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharitiesView.swift; sourceTree = "<group>"; };
 		2209142224656AEA00481B27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2209142524656AEA00481B27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2209142824656AEA00481B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,7 +84,7 @@
 		2209144724656C7900481B27 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		2209144824656C7900481B27 /* NetworkingHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
 		2209144924656C7900481B27 /* WebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
-		2209144E2465733100481B27 /* Charities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charities.swift; sourceTree = "<group>"; };
+		2209144E2465733100481B27 /* CharitiesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharitiesResponse.swift; sourceTree = "<group>"; };
 		220914502465738C00481B27 /* Charity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charity.swift; sourceTree = "<group>"; };
 		220914522465757700481B27 /* DonationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationResponse.swift; sourceTree = "<group>"; };
 		2209145B2465783800481B27 /* DonationsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsAPI.swift; sourceTree = "<group>"; };
@@ -88,6 +98,16 @@
 		2209146E2465A58600481B27 /* TamboonCharitiesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamboonCharitiesAPI.swift; sourceTree = "<group>"; };
 		220914702465A83400481B27 /* DonationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationViewModel.swift; sourceTree = "<group>"; };
 		220914722465A84200481B27 /* CharitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharitiesViewModel.swift; sourceTree = "<group>"; };
+		220914742465AFBA00481B27 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		220914772465BA0F00481B27 /* TamboonDC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamboonDC.swift; sourceTree = "<group>"; };
+		2209147B2465C2F900481B27 /* NoCharityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCharityView.swift; sourceTree = "<group>"; };
+		2209147D2465C3DD00481B27 /* CharityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityList.swift; sourceTree = "<group>"; };
+		2209147F2465C5E200481B27 /* CharityRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityRow.swift; sourceTree = "<group>"; };
+		220914822465C76000481B27 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		220914832465C76000481B27 /* URLImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		220914882465C81900481B27 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		2209148B2465C89800481B27 /* View+loading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+loading.swift"; sourceTree = "<group>"; };
+		2209148E2465D6D400481B27 /* DonationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,9 +150,12 @@
 		2209141B24656AE900481B27 /* Tamboon */ = {
 			isa = PBXGroup;
 			children = (
+				2209148D2465D6C700481B27 /* DonationViews */,
+				2209148A2465C88400481B27 /* Extensions */,
+				220914872465C77200481B27 /* CharityViews */,
+				220914812465C74D00481B27 /* Helpers */,
 				2209141C24656AE900481B27 /* AppDelegate.swift */,
 				2209141E24656AE900481B27 /* SceneDelegate.swift */,
-				2209142024656AE900481B27 /* ContentView.swift */,
 				2209142224656AEA00481B27 /* Assets.xcassets */,
 				2209142724656AEA00481B27 /* LaunchScreen.storyboard */,
 				2209142A24656AEA00481B27 /* Info.plist */,
@@ -152,6 +175,7 @@
 		2209143624656B3A00481B27 /* TamboonModel */ = {
 			isa = PBXGroup;
 			children = (
+				220914762465B9F700481B27 /* DependencyContainers */,
 				2209146624659B7600481B27 /* Constants */,
 				2209146324659AE800481B27 /* Extensions */,
 				2209144524656C4000481B27 /* ViewModels */,
@@ -184,9 +208,10 @@
 			isa = PBXGroup;
 			children = (
 				2209146B24659E2F00481B27 /* RequestModels */,
-				2209144E2465733100481B27 /* Charities.swift */,
+				2209144E2465733100481B27 /* CharitiesResponse.swift */,
 				220914502465738C00481B27 /* Charity.swift */,
 				220914522465757700481B27 /* DonationResponse.swift */,
+				220914742465AFBA00481B27 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +238,7 @@
 		2209144D24656D1400481B27 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				220914882465C81900481B27 /* ImageLoader.swift */,
 				22091458246577D300481B27 /* Donations */,
 				220914542465772600481B27 /* Charities */,
 			);
@@ -277,6 +303,50 @@
 				2209146C24659EA800481B27 /* PaymentData.swift */,
 			);
 			path = RequestModels;
+			sourceTree = "<group>";
+		};
+		220914762465B9F700481B27 /* DependencyContainers */ = {
+			isa = PBXGroup;
+			children = (
+				220914772465BA0F00481B27 /* TamboonDC.swift */,
+			);
+			path = DependencyContainers;
+			sourceTree = "<group>";
+		};
+		220914812465C74D00481B27 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				220914822465C76000481B27 /* LoadingView.swift */,
+				220914832465C76000481B27 /* URLImage.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		220914872465C77200481B27 /* CharityViews */ = {
+			isa = PBXGroup;
+			children = (
+				2209142024656AE900481B27 /* CharitiesView.swift */,
+				2209147B2465C2F900481B27 /* NoCharityView.swift */,
+				2209147D2465C3DD00481B27 /* CharityList.swift */,
+				2209147F2465C5E200481B27 /* CharityRow.swift */,
+			);
+			path = CharityViews;
+			sourceTree = "<group>";
+		};
+		2209148A2465C88400481B27 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2209148B2465C89800481B27 /* View+loading.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2209148D2465D6C700481B27 /* DonationViews */ = {
+			isa = PBXGroup;
+			children = (
+				2209148E2465D6D400481B27 /* DonationView.swift */,
+			);
+			path = DonationViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,7 +465,14 @@
 			files = (
 				2209141D24656AE900481B27 /* AppDelegate.swift in Sources */,
 				2209141F24656AE900481B27 /* SceneDelegate.swift in Sources */,
-				2209142124656AE900481B27 /* ContentView.swift in Sources */,
+				2209147E2465C3DD00481B27 /* CharityList.swift in Sources */,
+				220914802465C5E200481B27 /* CharityRow.swift in Sources */,
+				2209147C2465C2F900481B27 /* NoCharityView.swift in Sources */,
+				220914842465C76000481B27 /* LoadingView.swift in Sources */,
+				2209148F2465D6D400481B27 /* DonationView.swift in Sources */,
+				2209148C2465C89800481B27 /* View+loading.swift in Sources */,
+				2209142124656AE900481B27 /* CharitiesView.swift in Sources */,
+				220914852465C76000481B27 /* URLImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,11 +482,14 @@
 			files = (
 				2209146D24659EA800481B27 /* PaymentData.swift in Sources */,
 				2209144A24656C7900481B27 /* APICall.swift in Sources */,
+				220914892465C81900481B27 /* ImageLoader.swift in Sources */,
+				2209147A2465BCD500481B27 /* TamboonDC.swift in Sources */,
 				2209146F2465A58600481B27 /* TamboonCharitiesAPI.swift in Sources */,
+				220914752465AFBA00481B27 /* Message.swift in Sources */,
 				2209144B24656C7900481B27 /* NetworkingHelpers.swift in Sources */,
 				220914512465738C00481B27 /* Charity.swift in Sources */,
 				2209145E2465784500481B27 /* CharitiesAPI.swift in Sources */,
-				2209144F2465733100481B27 /* Charities.swift in Sources */,
+				2209144F2465733100481B27 /* CharitiesResponse.swift in Sources */,
 				220914532465757700481B27 /* DonationResponse.swift in Sources */,
 				2209146224657A9B00481B27 /* FakeCharitiesAPI.swift in Sources */,
 				2209145C2465783800481B27 /* DonationsAPI.swift in Sources */,
