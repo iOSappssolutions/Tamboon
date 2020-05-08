@@ -1,0 +1,694 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2209141D24656AE900481B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209141C24656AE900481B27 /* AppDelegate.swift */; };
+		2209141F24656AE900481B27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209141E24656AE900481B27 /* SceneDelegate.swift */; };
+		2209142124656AE900481B27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209142024656AE900481B27 /* ContentView.swift */; };
+		2209142324656AEA00481B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2209142224656AEA00481B27 /* Assets.xcassets */; };
+		2209142624656AEA00481B27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2209142524656AEA00481B27 /* Preview Assets.xcassets */; };
+		2209142924656AEA00481B27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2209142724656AEA00481B27 /* LaunchScreen.storyboard */; };
+		2209143924656B3A00481B27 /* TamboonModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2209143724656B3A00481B27 /* TamboonModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2209143C24656B3A00481B27 /* TamboonModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2209143524656B3A00481B27 /* TamboonModel.framework */; };
+		2209143D24656B3A00481B27 /* TamboonModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2209143524656B3A00481B27 /* TamboonModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2209144A24656C7900481B27 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209144724656C7900481B27 /* APICall.swift */; };
+		2209144B24656C7900481B27 /* NetworkingHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209144824656C7900481B27 /* NetworkingHelpers.swift */; };
+		2209144C24656C7900481B27 /* WebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209144924656C7900481B27 /* WebRepository.swift */; };
+		2209144F2465733100481B27 /* Charities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209144E2465733100481B27 /* Charities.swift */; };
+		220914512465738C00481B27 /* Charity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914502465738C00481B27 /* Charity.swift */; };
+		220914532465757700481B27 /* DonationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914522465757700481B27 /* DonationResponse.swift */; };
+		2209145C2465783800481B27 /* DonationsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209145B2465783800481B27 /* DonationsAPI.swift */; };
+		2209145E2465784500481B27 /* CharitiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209145D2465784500481B27 /* CharitiesAPI.swift */; };
+		2209146024657A8400481B27 /* FakeDonationsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209145F24657A8400481B27 /* FakeDonationsAPI.swift */; };
+		2209146224657A9B00481B27 /* FakeCharitiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209146124657A9B00481B27 /* FakeCharitiesAPI.swift */; };
+		2209146524659B0500481B27 /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209146424659B0500481B27 /* URLSession+.swift */; };
+		2209146824659B8700481B27 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209146724659B8700481B27 /* Constants.swift */; };
+		2209146A24659C9A00481B27 /* TamboonDonationsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209146924659C9A00481B27 /* TamboonDonationsAPI.swift */; };
+		2209146D24659EA800481B27 /* PaymentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209146C24659EA800481B27 /* PaymentData.swift */; };
+		2209146F2465A58600481B27 /* TamboonCharitiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209146E2465A58600481B27 /* TamboonCharitiesAPI.swift */; };
+		220914712465A83400481B27 /* DonationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914702465A83400481B27 /* DonationViewModel.swift */; };
+		220914732465A84200481B27 /* CharitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914722465A84200481B27 /* CharitiesViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2209143A24656B3A00481B27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2209141124656AE900481B27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2209143424656B3A00481B27;
+			remoteInfo = TamboonModel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2209144124656B3A00481B27 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2209143D24656B3A00481B27 /* TamboonModel.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2209141924656AE900481B27 /* Tamboon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamboon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2209141C24656AE900481B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2209141E24656AE900481B27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2209142024656AE900481B27 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2209142224656AEA00481B27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2209142524656AEA00481B27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2209142824656AEA00481B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2209142A24656AEA00481B27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2209143524656B3A00481B27 /* TamboonModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TamboonModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2209143724656B3A00481B27 /* TamboonModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TamboonModel.h; sourceTree = "<group>"; };
+		2209143824656B3A00481B27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2209144724656C7900481B27 /* APICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		2209144824656C7900481B27 /* NetworkingHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingHelpers.swift; sourceTree = "<group>"; };
+		2209144924656C7900481B27 /* WebRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRepository.swift; sourceTree = "<group>"; };
+		2209144E2465733100481B27 /* Charities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charities.swift; sourceTree = "<group>"; };
+		220914502465738C00481B27 /* Charity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charity.swift; sourceTree = "<group>"; };
+		220914522465757700481B27 /* DonationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationResponse.swift; sourceTree = "<group>"; };
+		2209145B2465783800481B27 /* DonationsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsAPI.swift; sourceTree = "<group>"; };
+		2209145D2465784500481B27 /* CharitiesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharitiesAPI.swift; sourceTree = "<group>"; };
+		2209145F24657A8400481B27 /* FakeDonationsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDonationsAPI.swift; sourceTree = "<group>"; };
+		2209146124657A9B00481B27 /* FakeCharitiesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCharitiesAPI.swift; sourceTree = "<group>"; };
+		2209146424659B0500481B27 /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
+		2209146724659B8700481B27 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2209146924659C9A00481B27 /* TamboonDonationsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamboonDonationsAPI.swift; sourceTree = "<group>"; };
+		2209146C24659EA800481B27 /* PaymentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentData.swift; sourceTree = "<group>"; };
+		2209146E2465A58600481B27 /* TamboonCharitiesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamboonCharitiesAPI.swift; sourceTree = "<group>"; };
+		220914702465A83400481B27 /* DonationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationViewModel.swift; sourceTree = "<group>"; };
+		220914722465A84200481B27 /* CharitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharitiesViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2209141624656AE900481B27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2209143C24656B3A00481B27 /* TamboonModel.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2209143224656B3A00481B27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2209141024656AE900481B27 = {
+			isa = PBXGroup;
+			children = (
+				2209141B24656AE900481B27 /* Tamboon */,
+				2209143624656B3A00481B27 /* TamboonModel */,
+				2209141A24656AE900481B27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2209141A24656AE900481B27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2209141924656AE900481B27 /* Tamboon.app */,
+				2209143524656B3A00481B27 /* TamboonModel.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2209141B24656AE900481B27 /* Tamboon */ = {
+			isa = PBXGroup;
+			children = (
+				2209141C24656AE900481B27 /* AppDelegate.swift */,
+				2209141E24656AE900481B27 /* SceneDelegate.swift */,
+				2209142024656AE900481B27 /* ContentView.swift */,
+				2209142224656AEA00481B27 /* Assets.xcassets */,
+				2209142724656AEA00481B27 /* LaunchScreen.storyboard */,
+				2209142A24656AEA00481B27 /* Info.plist */,
+				2209142424656AEA00481B27 /* Preview Content */,
+			);
+			path = Tamboon;
+			sourceTree = "<group>";
+		};
+		2209142424656AEA00481B27 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2209142524656AEA00481B27 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2209143624656B3A00481B27 /* TamboonModel */ = {
+			isa = PBXGroup;
+			children = (
+				2209146624659B7600481B27 /* Constants */,
+				2209146324659AE800481B27 /* Extensions */,
+				2209144524656C4000481B27 /* ViewModels */,
+				2209144224656C1E00481B27 /* DataLayer */,
+				2209143724656B3A00481B27 /* TamboonModel.h */,
+				2209143824656B3A00481B27 /* Info.plist */,
+			);
+			path = TamboonModel;
+			sourceTree = "<group>";
+		};
+		2209144224656C1E00481B27 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2209144624656C4700481B27 /* Services */,
+				2209144424656C3100481B27 /* Models */,
+				2209144324656C2700481B27 /* Repositories */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		2209144324656C2700481B27 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				2209144D24656D1400481B27 /* Remote */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		2209144424656C3100481B27 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2209146B24659E2F00481B27 /* RequestModels */,
+				2209144E2465733100481B27 /* Charities.swift */,
+				220914502465738C00481B27 /* Charity.swift */,
+				220914522465757700481B27 /* DonationResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2209144524656C4000481B27 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				220914702465A83400481B27 /* DonationViewModel.swift */,
+				220914722465A84200481B27 /* CharitiesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2209144624656C4700481B27 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2209144724656C7900481B27 /* APICall.swift */,
+				2209144824656C7900481B27 /* NetworkingHelpers.swift */,
+				2209144924656C7900481B27 /* WebRepository.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2209144D24656D1400481B27 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				22091458246577D300481B27 /* Donations */,
+				220914542465772600481B27 /* Charities */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		220914542465772600481B27 /* Charities */ = {
+			isa = PBXGroup;
+			children = (
+				2209145A2465780200481B27 /* Implementation */,
+				2209145D2465784500481B27 /* CharitiesAPI.swift */,
+			);
+			path = Charities;
+			sourceTree = "<group>";
+		};
+		22091458246577D300481B27 /* Donations */ = {
+			isa = PBXGroup;
+			children = (
+				22091459246577FB00481B27 /* Implementation */,
+				2209145B2465783800481B27 /* DonationsAPI.swift */,
+			);
+			path = Donations;
+			sourceTree = "<group>";
+		};
+		22091459246577FB00481B27 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				2209145F24657A8400481B27 /* FakeDonationsAPI.swift */,
+				2209146924659C9A00481B27 /* TamboonDonationsAPI.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		2209145A2465780200481B27 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				2209146124657A9B00481B27 /* FakeCharitiesAPI.swift */,
+				2209146E2465A58600481B27 /* TamboonCharitiesAPI.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		2209146324659AE800481B27 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2209146424659B0500481B27 /* URLSession+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2209146624659B7600481B27 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				2209146724659B8700481B27 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		2209146B24659E2F00481B27 /* RequestModels */ = {
+			isa = PBXGroup;
+			children = (
+				2209146C24659EA800481B27 /* PaymentData.swift */,
+			);
+			path = RequestModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2209143024656B3A00481B27 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2209143924656B3A00481B27 /* TamboonModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2209141824656AE900481B27 /* Tamboon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2209142D24656AEA00481B27 /* Build configuration list for PBXNativeTarget "Tamboon" */;
+			buildPhases = (
+				2209141524656AE900481B27 /* Sources */,
+				2209141624656AE900481B27 /* Frameworks */,
+				2209141724656AE900481B27 /* Resources */,
+				2209144124656B3A00481B27 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2209143B24656B3A00481B27 /* PBXTargetDependency */,
+			);
+			name = Tamboon;
+			productName = Tamboon;
+			productReference = 2209141924656AE900481B27 /* Tamboon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2209143424656B3A00481B27 /* TamboonModel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2209143E24656B3A00481B27 /* Build configuration list for PBXNativeTarget "TamboonModel" */;
+			buildPhases = (
+				2209143024656B3A00481B27 /* Headers */,
+				2209143124656B3A00481B27 /* Sources */,
+				2209143224656B3A00481B27 /* Frameworks */,
+				2209143324656B3A00481B27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TamboonModel;
+			productName = TamboonModel;
+			productReference = 2209143524656B3A00481B27 /* TamboonModel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2209141124656AE900481B27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Miroslav Djukic";
+				TargetAttributes = {
+					2209141824656AE900481B27 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					2209143424656B3A00481B27 = {
+						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
+					};
+				};
+			};
+			buildConfigurationList = 2209141424656AE900481B27 /* Build configuration list for PBXProject "Tamboon" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2209141024656AE900481B27;
+			productRefGroup = 2209141A24656AE900481B27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2209141824656AE900481B27 /* Tamboon */,
+				2209143424656B3A00481B27 /* TamboonModel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2209141724656AE900481B27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2209142924656AEA00481B27 /* LaunchScreen.storyboard in Resources */,
+				2209142624656AEA00481B27 /* Preview Assets.xcassets in Resources */,
+				2209142324656AEA00481B27 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2209143324656B3A00481B27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2209141524656AE900481B27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2209141D24656AE900481B27 /* AppDelegate.swift in Sources */,
+				2209141F24656AE900481B27 /* SceneDelegate.swift in Sources */,
+				2209142124656AE900481B27 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2209143124656B3A00481B27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2209146D24659EA800481B27 /* PaymentData.swift in Sources */,
+				2209144A24656C7900481B27 /* APICall.swift in Sources */,
+				2209146F2465A58600481B27 /* TamboonCharitiesAPI.swift in Sources */,
+				2209144B24656C7900481B27 /* NetworkingHelpers.swift in Sources */,
+				220914512465738C00481B27 /* Charity.swift in Sources */,
+				2209145E2465784500481B27 /* CharitiesAPI.swift in Sources */,
+				2209144F2465733100481B27 /* Charities.swift in Sources */,
+				220914532465757700481B27 /* DonationResponse.swift in Sources */,
+				2209146224657A9B00481B27 /* FakeCharitiesAPI.swift in Sources */,
+				2209145C2465783800481B27 /* DonationsAPI.swift in Sources */,
+				220914712465A83400481B27 /* DonationViewModel.swift in Sources */,
+				2209146524659B0500481B27 /* URLSession+.swift in Sources */,
+				2209146024657A8400481B27 /* FakeDonationsAPI.swift in Sources */,
+				2209146A24659C9A00481B27 /* TamboonDonationsAPI.swift in Sources */,
+				2209144C24656C7900481B27 /* WebRepository.swift in Sources */,
+				2209146824659B8700481B27 /* Constants.swift in Sources */,
+				220914732465A84200481B27 /* CharitiesViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2209143B24656B3A00481B27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2209143424656B3A00481B27 /* TamboonModel */;
+			targetProxy = 2209143A24656B3A00481B27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2209142724656AEA00481B27 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2209142824656AEA00481B27 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2209142B24656AEA00481B27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2209142C24656AEA00481B27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2209142E24656AEA00481B27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Tamboon/Preview Content\"";
+				DEVELOPMENT_TEAM = 6H82KV2XS8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Tamboon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavdjukic.Tamboon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2209142F24656AEA00481B27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Tamboon/Preview Content\"";
+				DEVELOPMENT_TEAM = 6H82KV2XS8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Tamboon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavdjukic.Tamboon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2209143F24656B3A00481B27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6H82KV2XS8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TamboonModel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavdjukic.TamboonModel;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2209144024656B3A00481B27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 6H82KV2XS8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TamboonModel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.miroslavdjukic.TamboonModel;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2209141424656AE900481B27 /* Build configuration list for PBXProject "Tamboon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2209142B24656AEA00481B27 /* Debug */,
+				2209142C24656AEA00481B27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2209142D24656AEA00481B27 /* Build configuration list for PBXNativeTarget "Tamboon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2209142E24656AEA00481B27 /* Debug */,
+				2209142F24656AEA00481B27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2209143E24656B3A00481B27 /* Build configuration list for PBXNativeTarget "TamboonModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2209143F24656B3A00481B27 /* Debug */,
+				2209144024656B3A00481B27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2209141124656AE900481B27 /* Project object */;
+}
