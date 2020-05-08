@@ -15,23 +15,22 @@ struct CharitiesView: View {
     @ObservedObject var charitiesViewModel: CharitiesViewModel
     
     var body: some View {
-        Group {
-            if(charitiesViewModel.charities != nil && charitiesViewModel.charities!.count > 0) {
-                Text("")
-            } else  {
-                NoCharityView()
-                    .opacity(charitiesViewModel.isLoading ? 0 : 1)
+        NavigationView {
+            Group {
+                if(charitiesViewModel.charities != nil && charitiesViewModel.charities!.count > 0) {
+                    CharityList(charities: self.charitiesViewModel.charities!)
+                } else  {
+                    NoCharityView()
+                        .opacity(charitiesViewModel.isLoading ? 0 : 1)
+                }
             }
+            .navigationBarTitle("Charities")
+            
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             self.charitiesViewModel.loadCharities()
         }
-//        List {
-//
-//            ForEach(charitiesViewModel.charities) { charity in
-//                Text("")
-//            }
-//        }
     }
     
 }

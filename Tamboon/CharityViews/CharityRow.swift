@@ -12,9 +12,19 @@ import TamboonModel
 struct CharityRow: View {
     
     let charity: Charity
-    
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geometry in
+            HStack {
+                URLImage(url: self.charity.logoUrl)
+                .frame(width: geometry.size.width / 4)
+                .clipped()
+                .cornerRadius(5)
+                Text(self.charity.name)
+                
+                Spacer()
+            }
+        }
     }
 }
 

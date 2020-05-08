@@ -7,8 +7,12 @@
 //
 
 import SwiftUI
+import TamboonModel
 
 struct DonationView: View {
+    
+    @ObservedObject var donationsViewModel: DonationViewModel
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -16,6 +20,6 @@ struct DonationView: View {
 
 struct DonationView_Previews: PreviewProvider {
     static var previews: some View {
-        DonationView()
+        DonationView(donationsViewModel: TamboonDC.makeFakeDonationsiewModel())
     }
 }

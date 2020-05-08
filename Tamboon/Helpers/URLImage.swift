@@ -1,14 +1,14 @@
 //
 //  URLImage.swift
-//  Intensify
+//  Tamboon
 //
-//  Created by miroslav djukic on 24/02/2020.
-//  Copyright © 2020 miroslav djukic. All rights reserved.
+//  Created by Miroslav Djukic on 08/05/2020.
+//  Copyright © 2020 Miroslav Djukic. All rights reserved.
 //
 
 import Foundation
 import SwiftUI
-import IntensifyModel
+import TamboonModel
 
 struct URLImage: View {
     
@@ -28,7 +28,6 @@ struct URLImage: View {
             Image(uiImage: image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                //.frame(width:133, height:200)
         }.onReceive(imageLoader.didChange) { data in
             self.image = data?.downloadedImage ?? UIImage()
             withAnimation(.easeInOut(duration: 0.5

@@ -11,11 +11,17 @@ import TamboonModel
 
 struct CharityList: View {
     
-    @Binding var charities: [Charity]
+    var charities: [Charity]
     
     var body: some View {
-        List(charities, id: \.id) { charity in
-            CharityRow(charity: charity)
+        GeometryReader { geometry in
+            List(self.charities, id: \.id) { charity in
+                NavigationLink(destination: DonationView(donationsViewModel:
+                TamboonDC.makeDonationsViewModel(forCharity: charity))) {
+                     CharityRow(charity: charity)
+                        .frame(height: ((geometry.size.width / 4) / 2) * 3)
+                }
+            }
         }
     }
 }
@@ -23,7 +29,7 @@ struct CharityList: View {
 struct CharityList_Previews: PreviewProvider {
     static var previews: some View {
         
-        CharityList(charities: .constant(TamboonDC.getFakeCharities()))
+        CharityList(charities: TamboonDC.getFakeCharities())
         
     }
 }

@@ -1,9 +1,9 @@
 //
 //  View+..swift
-//  Intensify
+//  Tamboon
 //
-//  Created by miroslav djukic on 21/02/2020.
-//  Copyright © 2020 miroslav djukic. All rights reserved.
+//  Created by Miroslav Djukic on 08/05/2020.
+//  Copyright © 2020 Miroslav Djukic. All rights reserved.
 //
 
 import Foundation

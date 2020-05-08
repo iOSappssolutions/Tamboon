@@ -1,9 +1,9 @@
 //
 //  LoadingView.swift
-//  Intensify
+//  Tamboon
 //
-//  Created by miroslav djukic on 21/02/2020.
-//  Copyright © 2020 miroslav djukic. All rights reserved.
+//  Created by Miroslav Djukic on 08/05/2020.
+//  Copyright © 2020 Miroslav Djukic. All rights reserved.
 //
 
 import Foundation
@@ -78,7 +78,7 @@ struct ActivityIndicator: UIViewRepresentable {
 
 struct AnimatedGradientView1: View {
     
-    @State var gradient = [Color(.mainColor), Color("background"), Color("backgroundc")]
+    @State var gradient = [Color(.white), Color(.purple)]
     @State var startPoint = UnitPoint(x: 0, y: 0)
     @State var endPoint = UnitPoint(x: 0, y: 2)
     let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
