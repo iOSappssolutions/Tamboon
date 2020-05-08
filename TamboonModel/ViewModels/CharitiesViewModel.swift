@@ -9,13 +9,14 @@
 import Foundation
 import Combine
 
-public final class CharitiesViewModel {
+public final class CharitiesViewModel: ObservableObject {
     
     // MARK: properties
     
     private let charitiesAPI: CharitiesAPI
     @Published public var charities: [Charity]? = nil
     @Published public var isLoading: Bool = false
+    @Published public var alertMessage: Message? = nil
     private var subscriptions = Set<AnyCancellable>()
     
     // MARK: init
@@ -31,7 +32,9 @@ public final class CharitiesViewModel {
         charitiesAPI.getCharities()
         .sink(receiveCompletion: { [unowned self] in
             
-            print($0)
+            if case .failure(let error) = $0 {
+                self.alertMessage = Message(id: 0, message: error.localizedDescription)
+            }
             self.isLoading = false
             
         }) { (charitiesResponse) in

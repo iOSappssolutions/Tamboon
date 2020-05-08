@@ -9,19 +9,22 @@
 import Foundation
 import Combine
 
-public final class DonationViewModel {
+public final class DonationViewModel: ObservableObject {
     
     // MARK: properties
     
     private let donationApi: DonationsAPI
     @Published public var donation: DonationResponse? = nil
     @Published public var isLoading: Bool = false
+    @Published public var alertMessage: Message? = nil
     private var subscriptions = Set<AnyCancellable>()
+    private let charity: Charity
     
     // MARK: init
     
-    init(api: DonationsAPI) {
+    init(charity: Charity, api: DonationsAPI) {
         self.donationApi = api
+        self.charity = charity
     }
     
     // MARK: data load
@@ -37,7 +40,9 @@ public final class DonationViewModel {
             
         .sink(receiveCompletion: { [unowned self] in
             
-            print($0)
+            if case .failure(let error) = $0 {
+                self.alertMessage = Message(id: 0, message: error.localizedDescription)
+            }
             self.isLoading = false
             
         }) { (donationResponse) in

@@ -8,67 +8,54 @@
 
 import Foundation
 import SwiftUI
-import TamboonModel
 
-class TamboonDC {
+// MARK: Factories
+
+public class TamboonDC {
     
+    public init() {}
     
-    public init() {
-        
-        func makeAuthRemoteAPI() -> AuthRemoteAPI {
-            return IntensifyAuthRemoteAPI()
-        }
-        
-        func makeSharedUserSssionRepository() -> UserSessionRepository {
-            let userSessionDataStore = makeUserSessionDataStore()
-            let authRemoteAPI = makeAuthRemoteAPI()
-            
-            return IntensifyUserSessionRepository(dataStore: userSessionDataStore, remoteAPI: authRemoteAPI)
-        }
-        
-        func makeMainViewModel() -> MainViewModel {
-          return MainViewModel()
-        }
-        
-        self.sharedMainViewModel = makeMainViewModel()
-        self.sharedUserSessionRepository = makeSharedUserSssionRepository()
-        
-    }
-    
-    func makeCharitiesRemoteAPI() -> CharitiesAPI {
+    static func makeCharitiesRemoteAPI() -> CharitiesAPI {
         return TamboonCharitiesAPI()
     }
     
-    public func makeCharitiesView() -> some View {
-        let loginView = makeLoginView()
-        let homeViewFactory = { (userSession: UserSession) in
-            return self.makeHomeView(session: userSession)
-        }
-        let starterView = StarterView(loginView: loginView,
-                                      makeHomeView: homeViewFactory)
-            .environmentObject(loginView.loginViewModel.userSession)
-            //.environmentObject(KeyboardFollower())
-        sharedUserSession = loginView.loginViewModel.userSession
-        return starterView
+    public static func makeCharitiesViewModel() -> CharitiesViewModel {
+        return CharitiesViewModel(api: makeCharitiesRemoteAPI())
+    }
+        
+    static func makeDonationsRemoteAPI() -> DonationsAPI {
+        return TamboonDonationsAPI()
     }
     
-    func makeLoginViewModel()->LoginViewModel {
-        return LoginViewModel(userSessionRepository: sharedUserSessionRepository)
+    public static func makeDonationsViewModel(forCharity: Charity) -> DonationViewModel {
+        return DonationViewModel(charity: forCharity, api: makeDonationsRemoteAPI())
     }
     
-    public func makeLoginView()-> LoginView {
-        let loginViewModel = makeLoginViewModel()
-        let loginView = LoginView(loginViewModel: loginViewModel)
-        return loginView
+}
+
+// MARK: Fake view models
+
+extension TamboonDC {
+    
+    public static func makeFakeCharitiesViewModel() -> CharitiesViewModel {
+        let charitiesViewModel = CharitiesViewModel(api: FakeCharitiesAPI())
+        charitiesViewModel.charities = getFakeCharities()
+        return charitiesViewModel
     }
     
-    func makeHomeView(session: UserSession) -> HomeView {
-        let dependencyContainer = makeSignedInDependencyContainer(session: session)
-        return dependencyContainer.makeHomeView()
+    public static func makeFakeDonationsiewModel() -> DonationViewModel {
+        let donationViewModel = DonationViewModel(charity: createFakeCharity(), api: FakeDonationsAPI())
+        donationViewModel.donation = DonationResponse(success: false, errorCode: "insufficient_minerals", errorMessage: "Card has insufficient balance.")
+        return donationViewModel
     }
     
-    public func makeSignedInDependencyContainer(session: UserSession) -> IntensifySignedInDependencyContainer {
-        return IntensifySignedInDependencyContainer(userSession: session, appDependancyContainer: self)
+    public static func getFakeCharities() -> [Charity] {
+        return [createFakeCharity(),
+                createFakeCharity(),
+                createFakeCharity()]
     }
     
+    public static func createFakeCharity() -> Charity {
+        return Charity(id: 7331, name: "Habitat for Humanity", logoUrl: "http://www.adamandlianne.com/uploads/2/2/1/6/2216267/3231127.gif")
+    }
 }
