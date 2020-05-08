@@ -41,7 +41,7 @@ extension TamboonCharitiesAPI.API: APICall {
     var path: String {
         switch self {
         case .getCharities:
-            return C.placeDonation
+            return C.getCharities
         }
     }
     

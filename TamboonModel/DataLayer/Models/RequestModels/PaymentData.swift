@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct PaymentData: Encodable {
+public struct PaymentData: Encodable {
     
-    let name: String
-    let token: String
-    let amount: Double
+    public let name: String
+    public let token: String
+    public let amount: Double
     
 }

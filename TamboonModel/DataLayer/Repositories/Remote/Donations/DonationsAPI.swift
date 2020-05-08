@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-protocol DonationsAPI: WebRepository {
+public protocol DonationsAPI: WebRepository {
     
     func placeDonation(with payment: PaymentData) -> AnyPublisher<DonationResponse, Error>
     

@@ -17,7 +17,7 @@ public struct Charity: Decodable {
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"
-        case logoUrl = "logoUrl"
+        case logoUrl = "logo_url"
     }
     
 }

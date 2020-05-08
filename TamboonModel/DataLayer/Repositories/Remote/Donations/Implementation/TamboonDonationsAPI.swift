@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-public class TamboonDonationsAPI: DonationsAPI {
+class TamboonDonationsAPI: DonationsAPI {
     
     public var session: URLSession = URLSession.configuredURLSession()
     public var baseURL: String = C.baseURL
