@@ -23,12 +23,13 @@ struct DonationView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 30) {
+            VStack(spacing: 15) {
                 FormTextField(title: "Card number",
                               placeHolder: "",
                               getValidationMessage: DonationViewModel.getCardValidationMessage,
                               textEntry: $cardNumber,
                               isPinPadExpanded: $isPinPadExpanded)
+                    .keyboardType(.numberPad)
             
                 FormTextField(title: "Name on card",
                               placeHolder: "",
@@ -36,18 +37,21 @@ struct DonationView: View {
                               textEntry: $name,
                               isPinPadExpanded: $isPinPadExpanded)
                 
+                
                 HStack(spacing: 50) {
                     FormTextField(title: "ExpiryDate",
                                   placeHolder: "MM/YY",
                                   getValidationMessage: DonationViewModel.getExpiryDateValidationMessage,
                                   textEntry: $expiryDate,
                                   isPinPadExpanded: $isPinPadExpanded)
+                    .keyboardType(.numberPad)
                     
                     FormTextField(title: "Security code",
                                   placeHolder: "",
                                   getValidationMessage: DonationViewModel.getSecurityCodeValidationMessage,
                                   textEntry: $securityCode,
                                   isPinPadExpanded: $isPinPadExpanded)
+                    .keyboardType(.numberPad)
                 }
             
                 AmountView(title: "Amount", placeHolder: "",
@@ -55,13 +59,22 @@ struct DonationView: View {
                            isPinPadExpanded: $isPinPadExpanded)
 
                 PayButton(payAction: self.pay)
-                
+                    .disabled(!isPayEnabled())
+                    .opacity(isPayEnabled() ? 1 : 0.4)
                 Spacer()
             }
             .offset(y: isPinPadExpanded ? -250 : -1 * keyboardHandler.offset)
-            .animation(.easeIn)
+            //.animation(.easeIn)
             .padding()
         }
+    }
+    
+    func isPayEnabled() -> Bool {
+        return !cardNumber.isEmpty
+            && !name.isEmpty
+            && !expiryDate.isEmpty
+            && !securityCode.isEmpty
+            && Double(amount) ?? 0 > 0
     }
     
     func pay() {

@@ -22,12 +22,15 @@ struct PinPadView: View {
         return VStack {
             Spacer()
             HStack {
+                Button("Clear") {
+                    self.currentOutput = "0"
+                }
                 Spacer()
                 Button("Done") {
                     self.isExpanded = false
                 }
-                .opacity(self.isExpanded ? 1 : 0)
             }
+            .opacity(self.isExpanded ? 1 : 0)
             GridView(columns: 3, items: items) { item in
                 Button(action: {
                     if let specialKey = SpecialKeys(rawValue: item) {
@@ -92,6 +95,17 @@ struct PinPadView: View {
     
     func shouldAppendChar(char: String) -> Bool {
         let decimalLocation = currentOutput.range(of: currencyDecimalSeparator)?.lowerBound
+        
+        var integerDigits = 0
+        if let decimalIndex = decimalLocation {
+            integerDigits = String(currentOutput[currentOutput.startIndex..<decimalIndex]).count
+        } else {
+            integerDigits = currentOutput.count
+        }
+        
+        if integerDigits > 12 && char != currencyDecimalSeparator && decimalLocation == nil {
+            return false
+        }
 
         //Don't allow more that maxDigits decimal points
         if let location = decimalLocation {

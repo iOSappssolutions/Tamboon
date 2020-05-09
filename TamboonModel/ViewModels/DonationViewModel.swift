@@ -112,13 +112,36 @@ public final class DonationViewModel: ObservableObject {
     
     private static func validateExpiryDate(_ expDate: String) -> Bool {
         
-        return false
+        
+        let expDateArray = expDate.components(separatedBy: "/")
+        
+        if(expDateArray.count != 2) {
+            return false
+        }
+        
+        let monthRegex = "^(0?[1-9]|1[012])$"
+        
+        let monthTest = NSPredicate(format:"SELF MATCHES %@", monthRegex)
+        
+        let monthResult = monthTest.evaluate(with: expDateArray[0])
+        
+        let year = Calendar.current.component(.year, from: Date())
+        
+        let yearSuffix = String(year % 1000)
+        
+        let yearResult = yearSuffix <= expDateArray[1]
+        
+        return monthResult && yearResult
     }
     
     
     private static func validateSecurityCode(_ securityCode: String) -> Bool {
         
-        return false
+        let cvvRegex = "^[0-9]{3,4}$"
+        let cvvTest = NSPredicate(format:"SELF MATCHES %@", cvvRegex)
+        let result = cvvTest.evaluate(with: securityCode)
+        
+        return result
     }
     
     private static func onlyNumbers(string: String) -> String {

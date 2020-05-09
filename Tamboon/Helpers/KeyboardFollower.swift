@@ -1,5 +1,6 @@
 
 import UIKit
+import SwiftUI
 
 class KeyboardFollower : ObservableObject {
   @Published var offset: CGFloat = 0
@@ -20,6 +21,7 @@ class KeyboardFollower : ObservableObject {
     isVisible = keyboardEndFrame.minY < UIScreen.main.bounds.height
     let currentResponderPosition = UIResponder.currentFirstResponder?.globalFrame?.maxY
     if let currentRP = currentResponderPosition {
+
         if keyboardEndFrame.origin.y - 60 < currentRP {
             offset += currentRP - keyboardEndFrame.origin.y + 60
         } else {
@@ -27,6 +29,7 @@ class KeyboardFollower : ObservableObject {
                 offset = 0
             }
         }
+        
     }
   }
 }

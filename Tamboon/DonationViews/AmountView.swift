@@ -14,6 +14,7 @@ struct AmountView: View {
     let placeHolder: String
     @Binding var textEntry: String
     @Binding var isPinPadExpanded: Bool
+
     
     var body: some View {
         VStack {
@@ -24,8 +25,8 @@ struct AmountView: View {
             Button(action: {
                 self.togglePinPad()
             }, label: {
-                HStack {
-                    Text(Amount(amount: Double(textEntry) ?? 0, currency: "THB").amountDescription())
+                HStack(spacing: 1) {
+                    Text(formatAmount())
                     BlinkingView()
                         .opacity(self.isPinPadExpanded ? 1 : 0)
                         .frame(height: 20)
@@ -40,13 +41,35 @@ struct AmountView: View {
             .buttonStyle(PlainButtonStyle())
             .frame(height: 60)
             PinPadView(currentOutput: $textEntry, isExpanded: $isPinPadExpanded)
-            .frame(height: isPinPadExpanded ? 250 : 0)
-            .animation(.easeIn)
+                .frame(height: isPinPadExpanded ? 250 : 0)
+                .animation(.easeIn)
         }
+
+    }
+    
+    private func formatAmount() -> String {
+        var hasDecimal = false
+        var text = textEntry
+        if let last = textEntry.last {
+            if(String(last) == "." ) {
+                hasDecimal = true
+                _ = text.popLast()
+            }
+        }
+        let amount = Amount(amount: Double(text) ?? 0, currency: "THB")
+        var formattedAmount = amount.amountDescription()
+        
+        if(hasDecimal) {
+            formattedAmount = amount.withAppendedSymbol(".")
+        }
+        
+        return formattedAmount
     }
     
     private func togglePinPad() {
-        self.isPinPadExpanded.toggle()
+
+            self.isPinPadExpanded.toggle()
+        
         if(self.isPinPadExpanded) {
             UIResponder.currentFirstResponder?.resignFirstResponder()
         } 

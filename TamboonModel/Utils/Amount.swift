@@ -23,7 +23,7 @@ public struct Amount {
         let format = NumberFormatter()
         format.isLenient = true
         format.numberStyle = .currency
-        format.locale = Locale.current//Locale(identifier: "th")
+        format.locale = Locale(identifier: "th")
         format.generatesDecimalNumbers = true
         format.negativeFormat = "-\(format.positiveFormat!)"
         format.currencySymbol = Amount.getSymbol(code: "THB")
@@ -69,6 +69,25 @@ public struct Amount {
         let amountTextStripped = amountText.replacingOccurrences(of: symbol, with: "")
         let amountWhiteSpacesStripped = amountTextStripped.replacingOccurrences(of: " ", with: "")
         return Double(amountWhiteSpacesStripped)
+    }
+    
+    public func withAppendedSymbol(_ char: String) -> String {
+        var currentStringValue = amountDescription()
+        //ifcurrentStringValue.lastIndex(of: Amount.getSymbol(code: "THB"))
+        
+        if let range = currentStringValue.range(of: String(Amount.getSymbol(code: "THB") ?? "")) {
+            
+            if(range.upperBound == currentStringValue.endIndex) {
+                currentStringValue.insert(contentsOf: char, at: currentStringValue.index(before: range.lowerBound))
+            } else {
+                currentStringValue += char
+            }
+        }
+        
+        
+        
+        
+        return currentStringValue
     }
     
     public func amountDescription() -> String {
