@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class BlinkingView : UIView {
 
@@ -32,5 +33,17 @@ class BlinkingView : UIView {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+public struct BlinkingViewWrapper: UIViewRepresentable {
+    
+    
+    public func makeUIView(context: Context) -> UIView {
+        return BlinkingView(blinkColor: .red)
+    }
+
+    public func updateUIView(_ uiView: UIView, context: Context) {
+        
     }
 }
