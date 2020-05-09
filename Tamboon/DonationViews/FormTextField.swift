@@ -9,13 +9,41 @@
 import SwiftUI
 
 struct FormTextField: View {
+    
+    let title: String
+    let placeHolder: String
+    var getValidationMessage: (String) -> (String?)
+    @State var validationMessage: String? = nil
+    @Binding var textEntry: String
+    @Binding var isPinPadExpanded: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Text(title)
+                
+                Spacer()
+            }
+            TextField(placeHolder, text: $textEntry, onEditingChanged: { changed in
+                if(changed) {
+                    self.isPinPadExpanded = false
+                } else {
+                    self.validationMessage = self.getValidationMessage(self.textEntry)
+                }
+            }) {
+                self.validationMessage = self.getValidationMessage(self.textEntry)
+            }
+            .textFieldStyle(FormTextFieldStyle())
+            if(validationMessage != nil) {
+                HStack {
+                    Text(validationMessage!)
+                        .foregroundColor(Color(.red))
+                        .font(.caption)
+                    
+                    Spacer()
+                }
+            }
+        }
     }
 }
 
-struct FormTextField_Previews: PreviewProvider {
-    static var previews: some View {
-        FormTextField()
-    }
-}

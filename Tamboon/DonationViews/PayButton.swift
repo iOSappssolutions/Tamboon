@@ -9,13 +9,23 @@
 import SwiftUI
 
 struct PayButton: View {
+    var payAction: ()->()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct PayButton_Previews: PreviewProvider {
-    static var previews: some View {
-        PayButton()
+        Button(action: {
+            self.payAction()
+        }) {
+            HStack {
+                Spacer()
+                
+                Text("Pay")
+                
+                Spacer()
+            }
+            .frame(height: 60)
+            .foregroundColor(.white)
+            .background(Color("formColor"))
+            .cornerRadius(5)
+        }
     }
 }

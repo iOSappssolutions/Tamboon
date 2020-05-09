@@ -7,15 +7,40 @@
 //
 
 import SwiftUI
+import TamboonModel
 
-struct SwiftUIView: View {
+struct AmountView: View {
+    let title: String
+    let placeHolder: String
+    @Binding var textEntry: String
+    @Binding var isPinPadExpanded: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwiftUIView()
+        VStack {
+            HStack {
+                Text(title)
+                Spacer()
+            }
+            Button(action: {
+                self.isPinPadExpanded.toggle()
+            }, label: {
+                HStack {
+                    Text(Amount(amount: Double(textEntry) ?? 0, currency: "THB").amountDescription())
+                    BlinkingViewWrapper()
+                        .opacity(self.isPinPadExpanded ? 0 : 1)
+                    Spacer()
+                }
+                .padding(15)
+                .background(
+                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+                        .stroke(Color("formColor"), lineWidth: 2)
+                )
+                    .frame(height: 60)
+                //.textFieldStyle(FormTextFieldStyle())
+            })
+            PinPadView(currentOutput: $textEntry)
+                .frame(height: isPinPadExpanded ? 210 : 0)
+                .animation(.easeInOut)
+        }
     }
 }
