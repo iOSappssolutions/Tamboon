@@ -16,6 +16,7 @@ struct NoCharityView: View {
                 Text("No charities at the moment")
                     .font(.title)
                     .padding(.top, geometry.size.height / 4)
+                
                 Spacer()
             }
         }

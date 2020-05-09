@@ -20,6 +20,7 @@ struct CharityRow: View {
                 .frame(width: geometry.size.width / 4)
                 .clipped()
                 .cornerRadius(5)
+                
                 Text(self.charity.name)
                 
                 Spacer()

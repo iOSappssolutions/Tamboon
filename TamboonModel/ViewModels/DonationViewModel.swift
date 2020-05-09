@@ -29,7 +29,7 @@ public final class DonationViewModel: ObservableObject {
     
     // MARK: data load
     
-    public func loadCharities(name: String,
+    public func placeDonation(name: String,
                               token: String,
                               amount: Double) {
         isLoading = true
@@ -53,4 +53,48 @@ public final class DonationViewModel: ObservableObject {
         .store(in: &subscriptions)
     }
     
+    
+    // MARK: Validators
+    
+    public static func getNameValidationMessage(_ name: String) -> String? {
+        
+        return validateName(name) ? nil : ""
+    }
+    
+    public static func getCardValidationMessage(_ cardNumber: String) -> String? {
+        
+        return validateCardNumber(cardNumber) ? nil : "Credit card number is invalid"
+    }
+    
+    public static func getExpiryDateValidationMessage(_ expDate: String) -> String? {
+        
+        return validateExpiryDate(expDate) ? nil : "Card expiry date is invalid"
+    }
+    
+    public static func getSecurityCodeValidationMessage(_ securityCode: String) -> String? {
+        
+        return validateSecurityCode(securityCode) ? nil : "CVV code is not valid"
+    }
+    
+    public static func validateName(_ name: String) -> Bool {
+        
+        return true
+    }
+    
+    public static func validateCardNumber(_ cardNumber: String) -> Bool {
+        
+        return false
+    }
+    
+    public static func validateExpiryDate(_ expDate: String) -> Bool {
+        
+        return false
+    }
+    
+    public static func validateSecurityCode(_ securityCode: String) -> Bool {
+        
+        return false
+    }
+    
 }
+

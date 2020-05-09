@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Amount {
-    static let precisionDigits = 2
+public struct Amount {
+    public static let precisionDigits = 2
     
     let amount: Double
     let currency: String
@@ -19,27 +19,28 @@ struct Amount {
     
     // MARK: - Init
     
-    var format: NumberFormatter {
+    public var format: NumberFormatter {
         let format = NumberFormatter()
         format.isLenient = true
         format.numberStyle = .currency
-        format.locale = LanguageController.shared.getLocale()
+        format.locale = Locale.current//Locale(identifier: "th")
         format.generatesDecimalNumbers = true
         format.negativeFormat = "-\(format.positiveFormat!)"
-        //format.currencyCode = currency
-        format.currencySymbol = Amount.getSymbol(code: currency)
+        format.currencySymbol = Amount.getSymbol(code: "THB")
         format.maximumFractionDigits = Amount.precisionDigits
-        format.minimumFractionDigits = Amount.precisionDigits
+        format.minimumFractionDigits = 0
         format.minimumIntegerDigits = 1
+        format.maximumIntegerDigits = 15
         format.usesGroupingSeparator = false
         return format
     }
     
-    init(amount: Double,
+    public init(amount: Double,
          currency: String,
          minimumFractionDigits: Int? = nil,
          maximumFractionDigits: Int = Amount.precisionDigits,
          negative: Bool = false) {
+        
         self.amount = amount
         self.currency = currency
         self.minimumFractionDigits = minimumFractionDigits
@@ -52,14 +53,8 @@ struct Amount {
     var description: String {
         return amountDescription()
     }
-    /*
-    private func getSymbol(code: String) -> String {
-        let components: [String : String] = [NSLocale.Key.currencyCode.rawValue : code]
-        let identifier = Locale.identifier(fromComponents: components)
-        return Locale(identifier: identifier).currencySymbol ?? code
-    }*/
     
-    static func getSymbol(code: String) -> String? {
+    public static func getSymbol(code: String) -> String? {
         let locale = NSLocale(localeIdentifier: code)
         if locale.displayName(forKey: .currencySymbol, value: code) == code {
             let newlocale = NSLocale(localeIdentifier: code.dropLast() + "_en")
@@ -68,14 +63,15 @@ struct Amount {
         return locale.displayName(forKey: .currencySymbol, value: code)
     }
     
-    static func getValue(code: String, amountText: String)->String {
+    public static func getValue(code: String, amountText: String)->Double? {
         let symbolOpt = getSymbol(code: code)
-        guard let symbol = symbolOpt else { return "0"}
+        guard let symbol = symbolOpt else { return nil}
         let amountTextStripped = amountText.replacingOccurrences(of: symbol, with: "")
-        return amountTextStripped
+        let amountWhiteSpacesStripped = amountTextStripped.replacingOccurrences(of: " ", with: "")
+        return Double(amountWhiteSpacesStripped)
     }
     
-    func amountDescription() -> String {
+    public func amountDescription() -> String {
         guard let currencyString = format.string(from: amount as NSNumber) else { return "" }
         return currencyString
     }
