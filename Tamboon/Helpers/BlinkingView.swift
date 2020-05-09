@@ -1,49 +1,19 @@
-//
-//  BlinkingView.swift
-//  breadwallet
-//
-//  Created by Adrian Corscadden on 2017-04-16.
-//  Copyright © 2017 breadwallet LLC. All rights reserved.
-//
 
 import UIKit
 import SwiftUI
 
-class BlinkingView : UIView {
 
-    init(blinkColor: UIColor) {
-        self.blinkColor = blinkColor
-        super.init(frame: .zero)
-    }
-
-    func startBlinking() {
-        timer = Timer.scheduledTimer(timeInterval: 0.53, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-    }
-
-    func stopBlinking() {
-        timer?.invalidate()
-    }
-
-    @objc private func update() {
-        backgroundColor = backgroundColor == .clear ? blinkColor : .clear
-    }
-
-    private let blinkColor: UIColor
-    private var timer: Timer?
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-public struct BlinkingViewWrapper: UIViewRepresentable {
+struct BlinkingView: View {
     
+    let timer = Timer.publish(every: 0.53, on: .main, in: .common).autoconnect()
+    @State var isClear: Bool = true
     
-    public func makeUIView(context: Context) -> UIView {
-        return BlinkingView(blinkColor: .red)
-    }
-
-    public func updateUIView(_ uiView: UIView, context: Context) {
-        
+    var body: some View {
+        Rectangle()
+            .frame(width: 2)
+            .foregroundColor(isClear ? Color(.clear) : Color("formAccentColor"))
+            .onReceive(timer) { _ in
+                self.isClear.toggle()
+            }
     }
 }

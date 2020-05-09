@@ -8,13 +8,16 @@
 
 import SwiftUI
 
-struct FormTextFieldStyle: TextFieldStyle {
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        configuration
-        .padding(15)
-        .background(
-            RoundedRectangle(cornerRadius: 5, style: .continuous)
-                .stroke(Color("formColor"), lineWidth: 2)
-        )
+struct FormTextFieldStyle: ViewModifier {
+    var isActive: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .padding(15)
+            .accentColor(Color("formAccentColor"))
+            .background(
+                RoundedRectangle(cornerRadius: 5, style: .continuous)
+                    .stroke(isActive ? Color("formAccentColor") : Color("formColor"), lineWidth: 2)
+            )
     }
 }

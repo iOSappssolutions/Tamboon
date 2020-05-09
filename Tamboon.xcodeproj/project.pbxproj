@@ -54,6 +54,8 @@
 		22DA432924670EF400D04DE1 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA432824670EF400D04DE1 /* FormTextField.swift */; };
 		22DA432B24670F2900D04DE1 /* PayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA432A24670F2900D04DE1 /* PayButton.swift */; };
 		22DA432D24670F7B00D04DE1 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA432C24670F7B00D04DE1 /* AmountView.swift */; };
+		22DA432F2467126900D04DE1 /* KeyboardFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA432E2467126900D04DE1 /* KeyboardFollower.swift */; };
+		22DA4331246723B800D04DE1 /* Color+Addtions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA4330246723B800D04DE1 /* Color+Addtions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		22DA432824670EF400D04DE1 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		22DA432A24670F2900D04DE1 /* PayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayButton.swift; sourceTree = "<group>"; };
 		22DA432C24670F7B00D04DE1 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
+		22DA432E2467126900D04DE1 /* KeyboardFollower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardFollower.swift; sourceTree = "<group>"; };
+		22DA4330246723B800D04DE1 /* Color+Addtions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Addtions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +345,7 @@
 		220914812465C74D00481B27 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				22DA432E2467126900D04DE1 /* KeyboardFollower.swift */,
 				22DA43252466E96300D04DE1 /* BlinkingView.swift */,
 				22DA43232466E30800D04DE1 /* GridView.swift */,
 				220914822465C76000481B27 /* LoadingView.swift */,
@@ -365,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				2209148B2465C89800481B27 /* View+loading.swift */,
+				22DA4330246723B800D04DE1 /* Color+Addtions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				2209141F24656AE900481B27 /* SceneDelegate.swift in Sources */,
 				2209147E2465C3DD00481B27 /* CharityList.swift in Sources */,
 				220914802465C5E200481B27 /* CharityRow.swift in Sources */,
+				22DA432F2467126900D04DE1 /* KeyboardFollower.swift in Sources */,
 				2209147C2465C2F900481B27 /* NoCharityView.swift in Sources */,
 				22DA432B24670F2900D04DE1 /* PayButton.swift in Sources */,
 				220914842465C76000481B27 /* LoadingView.swift in Sources */,
@@ -538,6 +545,7 @@
 				2209142124656AE900481B27 /* CharitiesView.swift in Sources */,
 				22DA43262466E96300D04DE1 /* BlinkingView.swift in Sources */,
 				220914852465C76000481B27 /* URLImage.swift in Sources */,
+				22DA4331246723B800D04DE1 /* Color+Addtions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

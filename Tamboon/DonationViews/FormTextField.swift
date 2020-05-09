@@ -16,6 +16,7 @@ struct FormTextField: View {
     @State var validationMessage: String? = nil
     @Binding var textEntry: String
     @Binding var isPinPadExpanded: Bool
+    @State var isActive = false
     
     var body: some View {
         VStack {
@@ -24,26 +25,39 @@ struct FormTextField: View {
                 
                 Spacer()
             }
+            
             TextField(placeHolder, text: $textEntry, onEditingChanged: { changed in
                 if(changed) {
-                    self.isPinPadExpanded = false
+                    self.didStartEditing()
                 } else {
-                    self.validationMessage = self.getValidationMessage(self.textEntry)
+                    self.didEndEditing()
                 }
             }) {
-                self.validationMessage = self.getValidationMessage(self.textEntry)
+                self.didEndEditing()
             }
-            .textFieldStyle(FormTextFieldStyle())
-            if(validationMessage != nil) {
-                HStack {
-                    Text(validationMessage!)
-                        .foregroundColor(Color(.red))
-                        .font(.caption)
-                    
-                    Spacer()
-                }
+            .modifier(FormTextFieldStyle(isActive: isActive))
+            
+            HStack {
+                Text(validationMessage ?? "")
+                    .foregroundColor(Color(.red))
+                    .font(.caption)
+                
+                Spacer()
             }
+            .opacity(validationMessage != nil ? 1 : 0)
+            .frame(height: 20)
         }
+    }
+    
+    func didStartEditing() {
+        self.isPinPadExpanded = false
+        self.validationMessage = nil
+        self.isActive = true
+    }
+    
+    func didEndEditing() {
+        self.validationMessage = self.getValidationMessage(self.textEntry)
+        self.isActive = false
     }
 }
 

@@ -22,25 +22,33 @@ struct AmountView: View {
                 Spacer()
             }
             Button(action: {
-                self.isPinPadExpanded.toggle()
+                self.togglePinPad()
             }, label: {
                 HStack {
                     Text(Amount(amount: Double(textEntry) ?? 0, currency: "THB").amountDescription())
-                    BlinkingViewWrapper()
-                        .opacity(self.isPinPadExpanded ? 0 : 1)
+                    BlinkingView()
+                        .opacity(self.isPinPadExpanded ? 1 : 0)
+                        .frame(height: 20)
                     Spacer()
                 }
                 .padding(15)
                 .background(
                     RoundedRectangle(cornerRadius: 5, style: .continuous)
-                        .stroke(Color("formColor"), lineWidth: 2)
+                        .stroke(isPinPadExpanded ? Color("formAccentColor") : Color("formColor"), lineWidth: 2)
                 )
-                    .frame(height: 60)
-                //.textFieldStyle(FormTextFieldStyle())
             })
-            PinPadView(currentOutput: $textEntry)
-                .frame(height: isPinPadExpanded ? 210 : 0)
-                .animation(.easeInOut)
+            .buttonStyle(PlainButtonStyle())
+            .frame(height: 60)
+            PinPadView(currentOutput: $textEntry, isExpanded: $isPinPadExpanded)
+            .frame(height: isPinPadExpanded ? 250 : 0)
+            .animation(.easeIn)
         }
+    }
+    
+    private func togglePinPad() {
+        self.isPinPadExpanded.toggle()
+        if(self.isPinPadExpanded) {
+            UIResponder.currentFirstResponder?.resignFirstResponder()
+        } 
     }
 }

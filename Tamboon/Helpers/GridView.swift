@@ -33,7 +33,7 @@ struct GridView<Content, T>: View where Content: View {
     var body: some View {
         return GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
-                VStack {
+                VStack(spacing: 5) {
                     ForEach(0...self.numberRows, id: \.self) { row in
                         HStack(spacing: 5) {
                             ForEach(0..<self.columns, id: \.self) { column in

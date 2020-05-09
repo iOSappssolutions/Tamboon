@@ -12,42 +12,82 @@ struct PinPadView: View {
     
     private let currencyDecimalSeparator = "."
     @Binding var currentOutput: String
+    @Binding var isExpanded: Bool
     var maxDigits = 2
     
     var body: some View {
         
         let items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", currencyDecimalSeparator, "0", SpecialKeys.delete.rawValue]
         
-        return GridView(columns: 3, items: items) { item in
-            Button(action: {
-                if let specialKey = SpecialKeys(rawValue: item) {
-                    switch specialKey {
-                    case .delete:
-                        if self.currentOutput.count > 0 {
-                            if self.currentOutput == ("0" + self.currencyDecimalSeparator) {
-                                self.currentOutput = ""
-                            } else {
-                                self.currentOutput.remove(at: self.currentOutput.index(before: self.currentOutput.endIndex))
+        return VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                Button("Done") {
+                    self.isExpanded = false
+                }
+                .opacity(self.isExpanded ? 1 : 0)
+            }
+            GridView(columns: 3, items: items) { item in
+                Button(action: {
+                    if let specialKey = SpecialKeys(rawValue: item) {
+                        switch specialKey {
+                        case .delete:
+                            if self.currentOutput.count > 0 {
+                                if self.currentOutput == ("0" + self.currencyDecimalSeparator) {
+                                    self.currentOutput = ""
+                                } else {
+                                    self.currentOutput.remove(at: self.currentOutput.index(before: self.currentOutput.endIndex))
+                                }
                             }
                         }
+                    } else {
+                        if self.shouldAppendChar(char: item)  {
+                            self.currentOutput = self.currentOutput + item
+                        }
                     }
-                } else {
-                    if self.shouldAppendChar(char: item)  {
-                        self.currentOutput = self.currentOutput + item
-                    }
+                }) {
+                    self.containedView(item: item)
                 }
-            }) {
-                self.containedView(item: item)
             }
         }
     }
     
     func containedView(item: String) -> AnyView {
        if let specialKey = SpecialKeys(rawValue: item) {
-           return AnyView(specialKey.image())
+           return AnyView(
+            VStack {
+               Spacer()
+               
+               HStack {
+                   Spacer()
+                   
+                   specialKey.image()
+                   
+                   Spacer()
+               }
+              
+               
+               Spacer()
+           })
        } else {
-           return AnyView(Text("\(item)"))
-       }
+           return AnyView(
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    Text("\(item)")
+                        .font(.title)
+                    
+                    Spacer()
+                }
+               
+                
+                Spacer()
+            })
+        }
     }
     
     func shouldAppendChar(char: String) -> Bool {
@@ -99,7 +139,7 @@ struct PinPadView: View {
 
 struct PinPadView_Previews: PreviewProvider {
     static var previews: some View {
-        PinPadView(currentOutput: .constant(""))
+        PinPadView(currentOutput: .constant(""), isExpanded: .constant(true))
     }
 }
 
