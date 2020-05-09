@@ -4,6 +4,7 @@ import SwiftUI
 
 class KeyboardFollower : ObservableObject {
   @Published var offset: CGFloat = 0
+  @Published var toolBarPosition: CGFloat = 0
   @Published var isVisible = false
   
   init() {
@@ -21,12 +22,13 @@ class KeyboardFollower : ObservableObject {
     isVisible = keyboardEndFrame.minY < UIScreen.main.bounds.height
     let currentResponderPosition = UIResponder.currentFirstResponder?.globalFrame?.maxY
     if let currentRP = currentResponderPosition {
-
+        toolBarPosition = keyboardEndFrame.height
         if keyboardEndFrame.origin.y - 60 < currentRP {
             offset += currentRP - keyboardEndFrame.origin.y + 60
         } else {
             if(!isVisible) {
                 offset = 0
+                toolBarPosition = 0
             }
         }
         

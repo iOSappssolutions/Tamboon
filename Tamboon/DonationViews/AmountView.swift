@@ -27,9 +27,11 @@ struct AmountView: View {
             }, label: {
                 HStack(spacing: 1) {
                     Text(formatAmount())
+                    
                     BlinkingView()
                         .opacity(self.isPinPadExpanded ? 1 : 0)
                         .frame(height: 20)
+                    
                     Spacer()
                 }
                 .padding(15)
@@ -40,6 +42,7 @@ struct AmountView: View {
             })
             .buttonStyle(PlainButtonStyle())
             .frame(height: 60)
+            
             PinPadView(currentOutput: $textEntry, isExpanded: $isPinPadExpanded)
                 .frame(height: isPinPadExpanded ? 250 : 0)
                 .animation(.easeIn)

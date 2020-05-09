@@ -66,9 +66,14 @@ public final class DonationViewModel: ObservableObject {
         return validateCardNumber(cardNumber) ? nil : "Credit card number is invalid"
     }
     
-    public static func getExpiryDateValidationMessage(_ expDate: String) -> String? {
-        guard !expDate.isEmpty else { return nil }
-        return validateExpiryDate(expDate) ? nil : "Card expiry date is invalid"
+    public static func getExpiryYearValidationMessage(_ expYear: String) -> String? {
+        guard !expYear.isEmpty else { return nil }
+        return validateExpiryYear(expYear) ? nil : "Invalid year"
+    }
+    
+    public static func getExpiryMonthValidationMessage(_ expMonth: String) -> String? {
+        guard !expMonth.isEmpty else { return nil }
+        return validateExpiryMonth(expMonth) ? nil : "Invalid month"
     }
     
     public static func getSecurityCodeValidationMessage(_ securityCode: String) -> String? {
@@ -110,28 +115,24 @@ public final class DonationViewModel: ObservableObject {
         
     }
     
-    private static func validateExpiryDate(_ expDate: String) -> Bool {
-        
-        
-        let expDateArray = expDate.components(separatedBy: "/")
-        
-        if(expDateArray.count != 2) {
-            return false
-        }
+    private static func validateExpiryMonth(_ expMonth: String) -> Bool {
         
         let monthRegex = "^(0?[1-9]|1[012])$"
         
         let monthTest = NSPredicate(format:"SELF MATCHES %@", monthRegex)
         
-        let monthResult = monthTest.evaluate(with: expDateArray[0])
+        let monthResult = monthTest.evaluate(with: expMonth)
+        
+        return monthResult
+    }
+    
+    private static func validateExpiryYear(_ expYear: String) -> Bool {
         
         let year = Calendar.current.component(.year, from: Date())
         
-        let yearSuffix = String(year % 1000)
+        let yearResult = year <= Int(expYear) ?? 0
         
-        let yearResult = yearSuffix <= expDateArray[1]
-        
-        return monthResult && yearResult
+        return yearResult
     }
     
     

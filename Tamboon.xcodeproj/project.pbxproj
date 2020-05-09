@@ -57,6 +57,8 @@
 		22DA432F2467126900D04DE1 /* KeyboardFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA432E2467126900D04DE1 /* KeyboardFollower.swift */; };
 		22DA4331246723B800D04DE1 /* Color+Addtions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA4330246723B800D04DE1 /* Color+Addtions.swift */; };
 		22DA433324675B2600D04DE1 /* DismissableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA433224675B2600D04DE1 /* DismissableTextField.swift */; };
+		22DA4335246764D600D04DE1 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA4334246764D600D04DE1 /* ToolBar.swift */; };
+		22DA43372467661100D04DE1 /* TextBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43362467661100D04DE1 /* TextBindingManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,8 @@
 		22DA432E2467126900D04DE1 /* KeyboardFollower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardFollower.swift; sourceTree = "<group>"; };
 		22DA4330246723B800D04DE1 /* Color+Addtions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Addtions.swift"; sourceTree = "<group>"; };
 		22DA433224675B2600D04DE1 /* DismissableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissableTextField.swift; sourceTree = "<group>"; };
+		22DA4334246764D600D04DE1 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
+		22DA43362467661100D04DE1 /* TextBindingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBindingManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +358,8 @@
 				220914832465C76000481B27 /* URLImage.swift */,
 				22DA43212466E1F800D04DE1 /* PinPadView.swift */,
 				22DA433224675B2600D04DE1 /* DismissableTextField.swift */,
+				22DA4334246764D600D04DE1 /* ToolBar.swift */,
+				22DA43362467661100D04DE1 /* TextBindingManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -537,6 +543,7 @@
 				2209141F24656AE900481B27 /* SceneDelegate.swift in Sources */,
 				2209147E2465C3DD00481B27 /* CharityList.swift in Sources */,
 				220914802465C5E200481B27 /* CharityRow.swift in Sources */,
+				22DA43372467661100D04DE1 /* TextBindingManager.swift in Sources */,
 				22DA432F2467126900D04DE1 /* KeyboardFollower.swift in Sources */,
 				2209147C2465C2F900481B27 /* NoCharityView.swift in Sources */,
 				22DA432B24670F2900D04DE1 /* PayButton.swift in Sources */,
@@ -550,6 +557,7 @@
 				220914852465C76000481B27 /* URLImage.swift in Sources */,
 				22DA433324675B2600D04DE1 /* DismissableTextField.swift in Sources */,
 				22DA4331246723B800D04DE1 /* Color+Addtions.swift in Sources */,
+				22DA4335246764D600D04DE1 /* ToolBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

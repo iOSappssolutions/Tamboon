@@ -46,6 +46,8 @@ struct FormTextField: View {
             }
             .opacity(validationMessage != nil ? 1 : 0)
             .frame(height: 20)
+            
+            Spacer()
         }
     }
     
