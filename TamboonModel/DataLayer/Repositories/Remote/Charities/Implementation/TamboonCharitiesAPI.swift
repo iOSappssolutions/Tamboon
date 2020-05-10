@@ -12,7 +12,7 @@ import Combine
 public class TamboonCharitiesAPI: CharitiesAPI {
     
     public var session: URLSession = URLSession.configuredURLSession()
-    public var baseURL: String = C.baseURL
+    public var baseURL: String = T.baseURL
     
     // MARK: Charities endpoint calls
     
@@ -41,7 +41,7 @@ extension TamboonCharitiesAPI.API: APICall {
     var path: String {
         switch self {
         case .getCharities:
-            return C.getCharities
+            return T.getCharities
         }
     }
     

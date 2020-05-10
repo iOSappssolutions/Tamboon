@@ -15,10 +15,10 @@ struct FormTextFieldStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(15)
-            .accentColor(hideInput ? .clear : Color("formAccentColor"))
+            .accentColor(hideInput ? .clear : Color(C.formAccentColor))
             .background(
                 RoundedRectangle(cornerRadius: 5, style: .continuous)
-                    .stroke(isActive ? Color("formAccentColor") : Color("formColor"), lineWidth: 2)
+                    .stroke(isActive ? Color(C.formAccentColor) : Color(C.formColor), lineWidth: 2)
             )
     }
 }

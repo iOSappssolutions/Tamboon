@@ -23,10 +23,10 @@ public struct Amount {
         let format = NumberFormatter()
         format.isLenient = true
         format.numberStyle = .currency
-        format.locale = Locale(identifier: "th")
+        format.locale = Locale(identifier: T.locale)
         format.generatesDecimalNumbers = true
         format.negativeFormat = "-\(format.positiveFormat!)"
-        format.currencySymbol = Amount.getSymbol(code: "THB")
+        format.currencySymbol = Amount.getSymbol(code: T.currencyCode)
         format.maximumFractionDigits = Amount.precisionDigits
         format.minimumFractionDigits = 0
         format.minimumIntegerDigits = 1
@@ -73,7 +73,7 @@ public struct Amount {
     
     public func withAppendedSymbol(_ char: String) -> String {
         var currentStringValue = amountDescription()
-        if let range = currentStringValue.range(of: String(Amount.getSymbol(code: "THB") ?? "")) {
+        if let range = currentStringValue.range(of: String(Amount.getSymbol(code: T.currencyCode) ?? "")) {
             
             if(range.upperBound == currentStringValue.endIndex) {
                 currentStringValue.insert(contentsOf: char, at: currentStringValue.index(before: range.lowerBound))

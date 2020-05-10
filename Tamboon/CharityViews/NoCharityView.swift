@@ -13,7 +13,7 @@ struct NoCharityView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                Text("No charities at the moment")
+                Text(C.noCharities)
                     .font(.title)
                     .padding(.top, geometry.size.height / 4)
                 

@@ -44,7 +44,7 @@ struct DonationView: View {
                             }
                             .padding()
                             
-                            FormTextField(title: "Card number",
+                            FormTextField(title: C.cardNumber,
                                       placeHolder: "",
                                       getValidationMessage: DonationViewModel.getCardValidationMessage,
                                       textEntry: self.$cardNumber,
@@ -55,7 +55,7 @@ struct DonationView: View {
                         }
                        
                         
-                        FormTextField(title: "Name on card",
+                        FormTextField(title: C.cardName,
                                       placeHolder: "",
                                       getValidationMessage: DonationViewModel.getNameValidationMessage,
                                       textEntry: self.$name,
@@ -65,16 +65,16 @@ struct DonationView: View {
         
                         HStack(alignment: .top, spacing: 5) {
                             HStack(spacing: 5) {
-                                FormTextField(title: "Expiry month",
-                                              placeHolder: "MM",
+                                FormTextField(title: C.expiryMonth,
+                                              placeHolder: C.monthPlaceholder,
                                               getValidationMessage: DonationViewModel.getExpiryMonthValidationMessage,
                                               textEntry: self.$expiryMonth.text,
                                               isPinPadExpanded: self.$isPinPadExpanded,
                                               isActive: self.$isMonthActive)
                                 .keyboardType(.numberPad)
                         
-                                FormTextField(title: "Expiry year",
-                                              placeHolder: "YYYY",
+                                FormTextField(title: C.expiryYear,
+                                              placeHolder: C.yearPlaceholder,
                                               getValidationMessage: DonationViewModel.getExpiryYearValidationMessage,
                                               textEntry: self.$expiryYear.text,
                                               isPinPadExpanded: self.$isPinPadExpanded,
@@ -83,7 +83,7 @@ struct DonationView: View {
                             }
                             .frame(width: (geometry.size.width / 3) * 1.77 )
                             
-                            FormTextField(title: "Security code",
+                            FormTextField(title: C.securityCode,
                                           placeHolder: "",
                                           getValidationMessage: DonationViewModel.getSecurityCodeValidationMessage,
                                           textEntry: self.$securityCode.text,
@@ -93,7 +93,7 @@ struct DonationView: View {
                         }
 
                         VStack(spacing: 15) {
-                            AmountView(title: "Amount", placeHolder: "",
+                            AmountView(title: C.amount, placeHolder: "",
                                        textEntry: self.$amount,
                                        isPinPadExpanded: self.$isPinPadExpanded)
 

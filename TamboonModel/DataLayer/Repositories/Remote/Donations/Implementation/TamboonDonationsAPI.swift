@@ -12,7 +12,7 @@ import Combine
 class TamboonDonationsAPI: DonationsAPI {
     
     public var session: URLSession = URLSession.configuredURLSession()
-    public var baseURL: String = C.baseURL
+    public var baseURL: String = T.baseURL
     
     // MARK: Donation endpoint calls
     
@@ -41,7 +41,7 @@ extension TamboonDonationsAPI.API: APICall {
     var path: String {
         switch self {
         case .placeDonations:
-            return C.placeDonation
+            return T.placeDonation
         }
     }
     

@@ -66,7 +66,7 @@ public final class DonationViewModel: ObservableObject {
                     year: String,
                     amount: String) {
         
-        let client = OmiseSDK.Client.init(publicKey: "pkey_test_5jt7wzlwesogyowyugv")
+        let client = OmiseSDK.Client.init(publicKey: T.omiseKey)
         
         let tokenParameters = Token.CreateParameter(
             name: name,
@@ -95,7 +95,7 @@ public final class DonationViewModel: ObservableObject {
     
     // MARK: Formatters
     
-    public static func formatAmountDisplay(amount: String, currencyCode: String = "THB") -> String {
+    public static func formatAmountDisplay(amount: String) -> String {
         
         var hasDecimal = false
         var textEntry = amount
@@ -108,7 +108,7 @@ public final class DonationViewModel: ObservableObject {
             }
         }
 
-        let amountObj = Amount(amount: Double(textEntry) ?? 0, currency: currencyCode)
+        let amountObj = Amount(amount: Double(textEntry) ?? 0, currency: T.currencyCode)
         var formattedAmount = amountObj.amountDescription()
         
         // append decimal point if it was previously removed prior to formatting
@@ -121,11 +121,6 @@ public final class DonationViewModel: ObservableObject {
     }
     
     public static func amountToDouble(amount: String) -> Double? {
-//        let formatter = NumberFormatter()
-//        formatter.locale = Locale(identifier: "th")
-//        formatter.numberStyle = .decimal
-//        formatter.generatesDecimalNumbers = true
-//        formatter.maximumFractionDigits = 2
         
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 2
@@ -133,7 +128,7 @@ public final class DonationViewModel: ObservableObject {
         formatter.minimumIntegerDigits = 1
         formatter.maximumIntegerDigits = 9
         formatter.usesGroupingSeparator = false
-        formatter.locale = Locale(identifier: "th")
+        formatter.locale = Locale(identifier: T.locale)
         let number = formatter.number(from: amount)?.decimalValue
             
         //let number = formatter.number(from: amount)
@@ -150,22 +145,22 @@ public final class DonationViewModel: ObservableObject {
     
     public static func getCardValidationMessage(_ cardNumber: String) -> String? {
         guard !cardNumber.isEmpty else { return nil }
-        return validateCardNumber(cardNumber) ? nil : "Credit card number is invalid"
+        return validateCardNumber(cardNumber) ? nil : T.invalidCardMessage
     }
     
     public static func getExpiryYearValidationMessage(_ expYear: String) -> String? {
         guard !expYear.isEmpty else { return nil }
-        return validateExpiryYear(expYear) ? nil : "Invalid year"
+        return validateExpiryYear(expYear) ? nil : T.invalidExpiryYearMessage
     }
     
     public static func getExpiryMonthValidationMessage(_ expMonth: String) -> String? {
         guard !expMonth.isEmpty else { return nil }
-        return validateExpiryMonth(expMonth) ? nil : "Invalid month"
+        return validateExpiryMonth(expMonth) ? nil : T.invalidExpiryMonthMessage
     }
     
     public static func getSecurityCodeValidationMessage(_ securityCode: String) -> String? {
         guard !securityCode.isEmpty else { return nil }
-        return validateSecurityCode(securityCode) ? nil : "CVV code is not valid"
+        return validateSecurityCode(securityCode) ? nil : T.invalidCVVMessage
     }
     
     public static func validateName(_ name: String) -> Bool {

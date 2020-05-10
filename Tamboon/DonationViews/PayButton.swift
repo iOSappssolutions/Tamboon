@@ -21,13 +21,13 @@ struct PayButton: View {
             HStack {
                 Spacer()
                 
-                Text("Pay")
+                Text(C.pay)
                 
                 Spacer()
             }
             .frame(height: 60)
             .foregroundColor(.white)
-            .background(isPayEnabled ? Color("formAccentColor") : Color("formColor") )
+            .background(isPayEnabled ? Color(C.formAccentColor) : Color(C.formColor) )
             .cornerRadius(5)
         }
     }

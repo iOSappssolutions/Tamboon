@@ -26,13 +26,13 @@ struct PinPadView: View {
             Spacer()
             
             HStack {
-                Button("Clear") {
+                Button(C.clear) {
                     self.currentOutput = "0"
                 }
                 
                 Spacer()
                 
-                Button("Done") {
+                Button(C.done) {
                     self.isExpanded = false
                 }
             }

@@ -12,7 +12,7 @@ import Combine
 public class FakeCharitiesAPI: CharitiesAPI {
 
     public var session: URLSession = URLSession.configuredURLSession()
-    public var baseURL: String = C.baseURL
+    public var baseURL: String = T.baseURL
     
     func getCharities() -> AnyPublisher<CharitiesResponse, Error> {
         return Empty<CharitiesResponse, Error>().eraseToAnyPublisher()

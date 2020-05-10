@@ -24,7 +24,7 @@ struct CharitiesView: View {
                         .opacity(charitiesViewModel.isLoading ? 0 : 1)
                 }
             }
-            .navigationBarTitle("Charities")
+            .navigationBarTitle(C.charities)
             
         }
         .navigationViewStyle(StackNavigationViewStyle())

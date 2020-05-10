@@ -48,6 +48,7 @@
 		220914952465DFF400481B27 /* OmiseCreditCardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914942465DFF400481B27 /* OmiseCreditCardForm.swift */; };
 		2209149A2465F52100481B27 /* FormTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914992465F52100481B27 /* FormTextFieldStyle.swift */; };
 		2209149F2465F89F00481B27 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209149E2465F89F00481B27 /* Amount.swift */; };
+		22110A41246847E30094B4FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22110A40246847E30094B4FB /* Constants.swift */; };
 		22DA43222466E1F800D04DE1 /* PinPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43212466E1F800D04DE1 /* PinPadView.swift */; };
 		22DA43242466E30800D04DE1 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43232466E30800D04DE1 /* GridView.swift */; };
 		22DA43262466E96300D04DE1 /* BlinkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43252466E96300D04DE1 /* BlinkingView.swift */; };
@@ -56,7 +57,6 @@
 		22DA432D24670F7B00D04DE1 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA432C24670F7B00D04DE1 /* AmountView.swift */; };
 		22DA432F2467126900D04DE1 /* KeyboardFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA432E2467126900D04DE1 /* KeyboardFollower.swift */; };
 		22DA4331246723B800D04DE1 /* Color+Addtions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA4330246723B800D04DE1 /* Color+Addtions.swift */; };
-		22DA433324675B2600D04DE1 /* DismissableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA433224675B2600D04DE1 /* DismissableTextField.swift */; };
 		22DA4335246764D600D04DE1 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA4334246764D600D04DE1 /* ToolBar.swift */; };
 		22DA43372467661100D04DE1 /* TextBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43362467661100D04DE1 /* TextBindingManager.swift */; };
 		22DA433D2467817300D04DE1 /* OmiseSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220914912465DE6F00481B27 /* OmiseSDK.framework */; };
@@ -133,6 +133,7 @@
 		220914942465DFF400481B27 /* OmiseCreditCardForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmiseCreditCardForm.swift; sourceTree = "<group>"; };
 		220914992465F52100481B27 /* FormTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextFieldStyle.swift; sourceTree = "<group>"; };
 		2209149E2465F89F00481B27 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		22110A40246847E30094B4FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		22DA43212466E1F800D04DE1 /* PinPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPadView.swift; sourceTree = "<group>"; };
 		22DA43232466E30800D04DE1 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		22DA43252466E96300D04DE1 /* BlinkingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlinkingView.swift; sourceTree = "<group>"; };
@@ -141,7 +142,6 @@
 		22DA432C24670F7B00D04DE1 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
 		22DA432E2467126900D04DE1 /* KeyboardFollower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardFollower.swift; sourceTree = "<group>"; };
 		22DA4330246723B800D04DE1 /* Color+Addtions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Addtions.swift"; sourceTree = "<group>"; };
-		22DA433224675B2600D04DE1 /* DismissableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissableTextField.swift; sourceTree = "<group>"; };
 		22DA4334246764D600D04DE1 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		22DA43362467661100D04DE1 /* TextBindingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBindingManager.swift; sourceTree = "<group>"; };
 		22DA43402467880200D04DE1 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
@@ -366,7 +366,6 @@
 				220914822465C76000481B27 /* LoadingView.swift */,
 				220914832465C76000481B27 /* URLImage.swift */,
 				22DA43212466E1F800D04DE1 /* PinPadView.swift */,
-				22DA433224675B2600D04DE1 /* DismissableTextField.swift */,
 				22DA4334246764D600D04DE1 /* ToolBar.swift */,
 				22DA43362467661100D04DE1 /* TextBindingManager.swift */,
 			);
@@ -428,6 +427,7 @@
 		22110A3F2468478C0094B4FB /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				22110A40246847E30094B4FB /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -583,11 +583,11 @@
 				2209142124656AE900481B27 /* CharitiesView.swift in Sources */,
 				22DA43262466E96300D04DE1 /* BlinkingView.swift in Sources */,
 				220914852465C76000481B27 /* URLImage.swift in Sources */,
-				22DA433324675B2600D04DE1 /* DismissableTextField.swift in Sources */,
 				22DA4331246723B800D04DE1 /* Color+Addtions.swift in Sources */,
 				22DA4335246764D600D04DE1 /* ToolBar.swift in Sources */,
 				22DA4346246803EC00D04DE1 /* UIApplication+Additions.swift in Sources */,
 				22DA4344246803C400D04DE1 /* UIResponder+Additions.swift in Sources */,
+				22110A41246847E30094B4FB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

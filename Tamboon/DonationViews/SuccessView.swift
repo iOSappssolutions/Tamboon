@@ -15,10 +15,10 @@ struct SuccessView: View {
     
     var body: some View {
         VStack {
-            Text("Congrats! Donation has been placed")
+            Text(C.successMessage)
                 .padding()
             
-            Button("Dismiss") {
+            Button(C.dismiss) {
                 self.presentationMode.wrappedValue.dismiss()
                 self.isDonationOpen = false
             }

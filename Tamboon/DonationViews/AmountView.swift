@@ -38,7 +38,7 @@ struct AmountView: View {
                 .padding(15)
                 .background(
                     RoundedRectangle(cornerRadius: 5, style: .continuous)
-                        .stroke(isPinPadExpanded ? Color("formAccentColor") : Color("formColor"), lineWidth: 2)
+                        .stroke(isPinPadExpanded ? Color(C.formAccentColor) : Color(C.formColor), lineWidth: 2)
                 )
             })
             .buttonStyle(PlainButtonStyle())

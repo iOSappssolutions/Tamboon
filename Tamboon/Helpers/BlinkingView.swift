@@ -11,7 +11,7 @@ struct BlinkingView: View {
     var body: some View {
         Rectangle()
             .frame(width: 2)
-            .foregroundColor(isClear ? Color(.clear) : Color("formAccentColor"))
+            .foregroundColor(isClear ? Color(.clear) : Color(C.formAccentColor))
             .onReceive(timer) { _ in
                 self.isClear.toggle()
             }
