@@ -135,14 +135,12 @@ struct DonationView: View {
     }
     
     func pay() {
-        guard let amountDouble = Double(amount) else { return }
-        print(amountDouble)
         donationsViewModel.pay(name: name,
                                creditCard: cardNumber,
                                cvv: securityCode.text,
-                               month: Int(expiryMonth.text)!,
-                               year: Int(expiryYear.text)!,
-                               amount: amountDouble)
+                               month: expiryMonth.text,
+                               year: expiryYear.text,
+                               amount: amount)
     }
     
 }

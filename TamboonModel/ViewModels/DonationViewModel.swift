@@ -32,7 +32,7 @@ public final class DonationViewModel: ObservableObject {
     
     public func placeDonation(name: String,
                               token: String,
-                              amount: Double) {
+                              amount: Int) {
         isLoading = true
         
         donationApi.placeDonation(with: PaymentData(name: name,
@@ -62,17 +62,17 @@ public final class DonationViewModel: ObservableObject {
     public func pay(name: String,
                     creditCard: String,
                     cvv: String,
-                    month: Int,
-                    year: Int,
-                    amount: Double) {
+                    month: String,
+                    year: String,
+                    amount: String) {
         
         let client = OmiseSDK.Client.init(publicKey: "pkey_test_5jt7wzlwesogyowyugv")
         
         let tokenParameters = Token.CreateParameter(
             name: name,
             number: creditCard,
-            expirationMonth: month,
-            expirationYear: year,
+            expirationMonth: Int(month)!,
+            expirationYear: Int(year)!,
             securityCode: cvv
         )
         
@@ -82,7 +82,7 @@ public final class DonationViewModel: ObservableObject {
             guard let s = self else { return }
             switch tokenResult {
             case .success(let value):
-                s.placeDonation(name: name, token: value.id, amount: amount)
+                s.placeDonation(name: name, token: value.id, amount: Int(amount)!)
             case .failure(let error):
                 s.isLoading = false
                 s.alertMessage = Message(id: 0, message: error.localizedDescription)
@@ -93,7 +93,53 @@ public final class DonationViewModel: ObservableObject {
         
     }
     
+    // MARK: Formatters
     
+    public static func formatAmountDisplay(amount: String, currencyCode: String = "THB") -> String {
+        
+        var hasDecimal = false
+        var textEntry = amount
+        
+        // if last char is decimal separator remove it temporary
+        if let last = textEntry.last {
+            if(String(last) == "." ) {
+                hasDecimal = true
+                _ = textEntry.popLast()
+            }
+        }
+
+        let amountObj = Amount(amount: Double(textEntry) ?? 0, currency: currencyCode)
+        var formattedAmount = amountObj.amountDescription()
+        
+        // append decimal point if it was previously removed prior to formatting
+        if(hasDecimal) {
+            formattedAmount = amountObj.withAppendedSymbol(".")
+        }
+        
+        return formattedAmount
+
+    }
+    
+    public static func amountToDouble(amount: String) -> Double? {
+//        let formatter = NumberFormatter()
+//        formatter.locale = Locale(identifier: "th")
+//        formatter.numberStyle = .decimal
+//        formatter.generatesDecimalNumbers = true
+//        formatter.maximumFractionDigits = 2
+        
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 1
+        formatter.minimumIntegerDigits = 1
+        formatter.maximumIntegerDigits = 9
+        formatter.usesGroupingSeparator = false
+        formatter.locale = Locale(identifier: "th")
+        let number = formatter.number(from: amount)?.decimalValue
+            
+        //let number = formatter.number(from: amount)
+        
+        return (number as NSDecimalNumber?)?.doubleValue
+    }
     
     // MARK: Validators
     

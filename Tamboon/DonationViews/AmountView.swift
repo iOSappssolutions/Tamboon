@@ -28,7 +28,7 @@ struct AmountView: View {
                 self.togglePinPad()
             }, label: {
                 HStack(spacing: 1) {
-                    Text(formatAmount())
+                    Text(DonationViewModel.formatAmountDisplay(amount: textEntry))
                     
                     BlinkingView()
                         .opacity(self.isPinPadExpanded ? 1 : 0)
@@ -52,28 +52,28 @@ struct AmountView: View {
 
     }
     
-    private func formatAmount() -> String {
-        var hasDecimal = false
-        var text = textEntry
-        
-        // if last char is decimal separator remove it temporary
-        if let last = textEntry.last {
-            if(String(last) == "." ) {
-                hasDecimal = true
-                _ = text.popLast()
-            }
-        }
-
-        let amount = Amount(amount: Double(text) ?? 0, currency: "THB")
-        var formattedAmount = amount.amountDescription()
-        
-        // append decimal point if it was previously removed prior to formatting
-        if(hasDecimal) {
-            formattedAmount = amount.withAppendedSymbol(".")
-        }
-        
-        return formattedAmount
-    }
+//    private func formatAmount() -> String {
+//        var hasDecimal = false
+//        var text = textEntry
+//
+//        // if last char is decimal separator remove it temporary
+//        if let last = textEntry.last {
+//            if(String(last) == "." ) {
+//                hasDecimal = true
+//                _ = text.popLast()
+//            }
+//        }
+//
+//        let amount = Amount(amount: Double(text) ?? 0, currency: "THB")
+//        var formattedAmount = amount.amountDescription()
+//
+//        // append decimal point if it was previously removed prior to formatting
+//        if(hasDecimal) {
+//            formattedAmount = amount.withAppendedSymbol(".")
+//        }
+//
+//        return formattedAmount
+//    }
     
     private func togglePinPad() {
 

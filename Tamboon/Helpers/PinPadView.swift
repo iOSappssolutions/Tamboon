@@ -14,24 +14,31 @@ struct PinPadView: View {
     @Binding var currentOutput: String
     @Binding var isExpanded: Bool
     var maxDigits = 2
+    var isDecimal = false
     
     var body: some View {
         
-        let items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", currencyDecimalSeparator, "0", SpecialKeys.delete.rawValue]
+        let decimalItems = ["1", "2", "3", "4", "5", "6", "7", "8", "9", currencyDecimalSeparator, "0", SpecialKeys.delete.rawValue]
+        
+        let items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "", "0", SpecialKeys.delete.rawValue]
         
         return VStack {
             Spacer()
+            
             HStack {
                 Button("Clear") {
                     self.currentOutput = "0"
                 }
+                
                 Spacer()
+                
                 Button("Done") {
                     self.isExpanded = false
                 }
             }
             .opacity(self.isExpanded ? 1 : 0)
-            GridView(columns: 3, items: items) { item in
+            
+            GridView(columns: 3, items: isDecimal ? decimalItems : items) { item in
                 Button(action: {
                     if let specialKey = SpecialKeys(rawValue: item) {
                         switch specialKey {

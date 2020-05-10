@@ -12,6 +12,6 @@ public struct PaymentData: Encodable {
     
     public let name: String
     public let token: String
-    public let amount: Double
+    public let amount: Int
     
 }
