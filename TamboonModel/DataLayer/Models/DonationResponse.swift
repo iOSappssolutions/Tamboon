@@ -10,7 +10,7 @@ import Foundation
 
 public struct DonationResponse: Decodable {
     
-    public let success: Bool
+    public var success: Bool
     public let errorCode: String?
     public let errorMessage: String?
     

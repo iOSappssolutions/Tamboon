@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct PayButton: View {
+    
+    var isPayEnabled: Bool
+    
     var payAction: ()->()
     
     var body: some View {
@@ -24,7 +27,7 @@ struct PayButton: View {
             }
             .frame(height: 60)
             .foregroundColor(.white)
-            .background(Color("formColor"))
+            .background(isPayEnabled ? Color("formAccentColor") : Color("formColor") )
             .cornerRadius(5)
         }
     }

@@ -22,6 +22,7 @@ struct AmountView: View {
                 Text(title)
                 Spacer()
             }
+            
             Button(action: {
                 self.togglePinPad()
             }, label: {
@@ -45,8 +46,8 @@ struct AmountView: View {
             
             PinPadView(currentOutput: $textEntry, isExpanded: $isPinPadExpanded)
                 .frame(height: isPinPadExpanded ? 250 : 0)
-                .animation(.easeIn)
         }
+    
 
     }
     

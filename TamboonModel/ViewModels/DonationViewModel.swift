@@ -8,13 +8,14 @@
 
 import Foundation
 import Combine
+import OmiseSDK
 
 public final class DonationViewModel: ObservableObject {
     
     // MARK: properties
     
     private let donationApi: DonationsAPI
-    @Published public var donation: DonationResponse? = nil
+    @Published public var successDonation: Bool = false
     @Published public var isLoading: Bool = false
     @Published public var alertMessage: Message? = nil
     private var subscriptions = Set<AnyCancellable>()
@@ -47,11 +48,51 @@ public final class DonationViewModel: ObservableObject {
             
         }) { (donationResponse) in
             
-            self.donation = donationResponse
+            if(donationResponse.success) {
+                self.successDonation = true
+            } else {
+                self.alertMessage = Message(id: 0, message: donationResponse.errorMessage ?? "")
+            }
+            
             
         }
         .store(in: &subscriptions)
     }
+    
+    public func pay(name: String,
+                    creditCard: String,
+                    cvv: String,
+                    month: Int,
+                    year: Int,
+                    amount: Double) {
+        
+        let client = OmiseSDK.Client.init(publicKey: "pkey_test_5jt7wzlwesogyowyugv")
+        
+        let tokenParameters = Token.CreateParameter(
+            name: name,
+            number: creditCard,
+            expirationMonth: month,
+            expirationYear: year,
+            securityCode: cvv
+        )
+        
+        let request = Request<Token>(parameter: tokenParameters)
+        isLoading = true
+        client.send(request) { [weak self] (tokenResult) in
+            guard let s = self else { return }
+            switch tokenResult {
+            case .success(let value):
+                s.placeDonation(name: name, token: value.id, amount: amount)
+            case .failure(let error):
+                s.isLoading = false
+                s.alertMessage = Message(id: 0, message: error.localizedDescription)
+            }
+            
+          
+        }
+        
+    }
+    
     
     
     // MARK: Validators
@@ -81,12 +122,14 @@ public final class DonationViewModel: ObservableObject {
         return validateSecurityCode(securityCode) ? nil : "CVV code is not valid"
     }
     
-    private static func validateName(_ name: String) -> Bool {
+    public static func validateName(_ name: String) -> Bool {
         
-        return true
+        return !name.isEmpty
     }
     
-    private static func validateCardNumber(_ cardNumber: String) -> Bool {
+    public static func validateCardNumber(_ cardNumber: String) -> Bool {
+        guard !cardNumber.isEmpty else { return false }
+        
         let numbers = self.onlyNumbers(string: cardNumber)
         if numbers.count < 9 {
             return false
@@ -115,7 +158,8 @@ public final class DonationViewModel: ObservableObject {
         
     }
     
-    private static func validateExpiryMonth(_ expMonth: String) -> Bool {
+    public static func validateExpiryMonth(_ expMonth: String) -> Bool {
+        guard !expMonth.isEmpty else { return false }
         
         let monthRegex = "^(0?[1-9]|1[012])$"
         
@@ -126,7 +170,8 @@ public final class DonationViewModel: ObservableObject {
         return monthResult
     }
     
-    private static func validateExpiryYear(_ expYear: String) -> Bool {
+    public static func validateExpiryYear(_ expYear: String) -> Bool {
+        guard !expYear.isEmpty else { return false }
         
         let year = Calendar.current.component(.year, from: Date())
         
@@ -136,7 +181,8 @@ public final class DonationViewModel: ObservableObject {
     }
     
     
-    private static func validateSecurityCode(_ securityCode: String) -> Bool {
+    public static func validateSecurityCode(_ securityCode: String) -> Bool {
+        guard !securityCode.isEmpty else { return false }
         
         let cvvRegex = "^[0-9]{3,4}$"
         let cvvTest = NSPredicate(format:"SELF MATCHES %@", cvvRegex)

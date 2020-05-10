@@ -45,7 +45,6 @@ extension TamboonDC {
     
     public static func makeFakeDonationsiewModel() -> DonationViewModel {
         let donationViewModel = DonationViewModel(charity: createFakeCharity(), api: FakeDonationsAPI())
-        donationViewModel.donation = DonationResponse(success: false, errorCode: "insufficient_minerals", errorMessage: "Card has insufficient balance.")
         return donationViewModel
     }
     

@@ -59,6 +59,8 @@
 		22DA433324675B2600D04DE1 /* DismissableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA433224675B2600D04DE1 /* DismissableTextField.swift */; };
 		22DA4335246764D600D04DE1 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA4334246764D600D04DE1 /* ToolBar.swift */; };
 		22DA43372467661100D04DE1 /* TextBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43362467661100D04DE1 /* TextBindingManager.swift */; };
+		22DA433D2467817300D04DE1 /* OmiseSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220914912465DE6F00481B27 /* OmiseSDK.framework */; };
+		22DA43412467880200D04DE1 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43402467880200D04DE1 /* SuccessView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +142,7 @@
 		22DA433224675B2600D04DE1 /* DismissableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissableTextField.swift; sourceTree = "<group>"; };
 		22DA4334246764D600D04DE1 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		22DA43362467661100D04DE1 /* TextBindingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBindingManager.swift; sourceTree = "<group>"; };
+		22DA43402467880200D04DE1 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22DA433D2467817300D04DE1 /* OmiseSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +397,7 @@
 				22DA432A24670F2900D04DE1 /* PayButton.swift */,
 				22DA432C24670F7B00D04DE1 /* AmountView.swift */,
 				220914942465DFF400481B27 /* OmiseCreditCardForm.swift */,
+				22DA43402467880200D04DE1 /* SuccessView.swift */,
 			);
 			path = DonationViews;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 			files = (
 				22DA43222466E1F800D04DE1 /* PinPadView.swift in Sources */,
 				220914952465DFF400481B27 /* OmiseCreditCardForm.swift in Sources */,
+				22DA43412467880200D04DE1 /* SuccessView.swift in Sources */,
 				22DA432D24670F7B00D04DE1 /* AmountView.swift in Sources */,
 				2209141D24656AE900481B27 /* AppDelegate.swift in Sources */,
 				2209149A2465F52100481B27 /* FormTextFieldStyle.swift in Sources */,

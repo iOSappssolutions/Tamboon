@@ -12,12 +12,15 @@ import TamboonModel
 struct CharityList: View {
     
     var charities: [Charity]
+    @State var isDonationOpen: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
             List(self.charities, id: \.id) { charity in
-                NavigationLink(destination: DonationView(donationsViewModel:
-                TamboonDC.makeDonationsViewModel(forCharity: charity))) {
+                NavigationLink(destination: DonationView(donationsViewModel: TamboonDC.makeDonationsViewModel(forCharity: charity),
+                               isDonationOpen: self.$isDonationOpen),
+                               isActive: self.$isDonationOpen) {
+                                
                      CharityRow(charity: charity)
                         .frame(height: ((geometry.size.width / 4) / 2) * 3)
                 }
