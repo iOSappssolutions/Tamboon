@@ -45,7 +45,7 @@ struct DonationView: View {
                             
                             FormTextField(title: C.cardNumber,
                                       placeHolder: "",
-                                      getValidationMessage: DonationViewModel.getCardValidationMessage,
+                                      getValidationMessage: CreditCardFormValidator.getCardValidationMessage,
                                       textEntry: self.$cardNumber,
                                       isPinPadExpanded: self.$isPinPadExpanded,
                                       isActive: self.$isCardActive,
@@ -56,7 +56,7 @@ struct DonationView: View {
                         
                         FormTextField(title: C.cardName,
                                       placeHolder: "",
-                                      getValidationMessage: DonationViewModel.getNameValidationMessage,
+                                      getValidationMessage: CreditCardFormValidator.getNameValidationMessage,
                                       textEntry: self.$name,
                                       isPinPadExpanded: self.$isPinPadExpanded,
                                       isActive: self.$isNameActive)
@@ -66,7 +66,7 @@ struct DonationView: View {
                             HStack(spacing: 5) {
                                 FormTextField(title: C.expiryMonth,
                                               placeHolder: C.monthPlaceholder,
-                                              getValidationMessage: DonationViewModel.getExpiryMonthValidationMessage,
+                                              getValidationMessage: CreditCardFormValidator.getExpiryMonthValidationMessage,
                                               textEntry: self.$expiryMonth.text,
                                               isPinPadExpanded: self.$isPinPadExpanded,
                                               isActive: self.$isMonthActive)
@@ -74,7 +74,7 @@ struct DonationView: View {
                         
                                 FormTextField(title: C.expiryYear,
                                               placeHolder: C.yearPlaceholder,
-                                              getValidationMessage: DonationViewModel.getExpiryYearValidationMessage,
+                                              getValidationMessage: CreditCardFormValidator.getExpiryYearValidationMessage,
                                               textEntry: self.$expiryYear.text,
                                               isPinPadExpanded: self.$isPinPadExpanded,
                                               isActive: self.$isYearActive)
@@ -84,7 +84,7 @@ struct DonationView: View {
                             
                             FormTextField(title: C.securityCode,
                                           placeHolder: "",
-                                          getValidationMessage: DonationViewModel.getSecurityCodeValidationMessage,
+                                          getValidationMessage: CreditCardFormValidator.getSecurityCodeValidationMessage,
                                           textEntry: self.$securityCode.text,
                                           isPinPadExpanded: self.$isPinPadExpanded,
                                           isActive: self.$isSecurityActive)
@@ -126,11 +126,11 @@ struct DonationView: View {
     }
     
     func isPayEnabled() -> Bool {
-        return DonationViewModel.validateCardNumber(cardNumber)
-            && DonationViewModel.validateName(name)
-            && DonationViewModel.validateExpiryYear(expiryYear.text)
-            && DonationViewModel.validateExpiryMonth(expiryMonth.text)
-            && DonationViewModel.validateSecurityCode(securityCode.text)
+        return CreditCardFormValidator.validateCardNumber(cardNumber)
+            && CreditCardFormValidator.validateName(name)
+            && CreditCardFormValidator.validateExpiryYear(expiryYear.text)
+            && CreditCardFormValidator.validateExpiryMonth(expiryMonth.text)
+            && CreditCardFormValidator.validateSecurityCode(securityCode.text)
             && Int(amount) ?? 0 > 0
     }
     

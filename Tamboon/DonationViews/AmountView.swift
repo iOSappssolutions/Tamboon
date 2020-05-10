@@ -27,7 +27,7 @@ struct AmountView: View {
                 self.togglePinPad()
             }, label: {
                 HStack(spacing: 1) {
-                    Text(DonationViewModel.formatAmountDisplay(amount: textEntry))
+                    Text(Amount.formatAmountDisplay(amount: textEntry))
                     
                     BlinkingView()
                         .opacity(self.isPinPadExpanded ? 1 : 0)

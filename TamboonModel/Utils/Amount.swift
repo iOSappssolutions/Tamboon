@@ -89,4 +89,31 @@ public struct Amount {
         guard let currencyString = format.string(from: amount as NSNumber) else { return "" }
         return currencyString
     }
+    
+    
+    public static func formatAmountDisplay(amount: String) -> String {
+        
+        var hasDecimal = false
+        var textEntry = amount
+        
+        // if last char is decimal separator remove it temporary
+        if let last = textEntry.last {
+            if(String(last) == "." ) {
+                hasDecimal = true
+                _ = textEntry.popLast()
+            }
+        }
+
+        let amountObj = Amount(amount: Double(textEntry) ?? 0, currency: T.currencyCode)
+        var formattedAmount = amountObj.amountDescription()
+        
+        // append decimal point if it was previously removed prior to formatting
+        if(hasDecimal) {
+            formattedAmount = amountObj.withAppendedSymbol(".")
+        }
+        
+        return formattedAmount
+
+    }
+    
 }

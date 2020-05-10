@@ -49,6 +49,7 @@
 		2209149A2465F52100481B27 /* FormTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220914992465F52100481B27 /* FormTextFieldStyle.swift */; };
 		2209149F2465F89F00481B27 /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2209149E2465F89F00481B27 /* Amount.swift */; };
 		22110A41246847E30094B4FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22110A40246847E30094B4FB /* Constants.swift */; };
+		2249EB3224686DCC0023C8F4 /* CreditCardFormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2249EB3124686DCC0023C8F4 /* CreditCardFormValidator.swift */; };
 		22DA43222466E1F800D04DE1 /* PinPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43212466E1F800D04DE1 /* PinPadView.swift */; };
 		22DA43242466E30800D04DE1 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43232466E30800D04DE1 /* GridView.swift */; };
 		22DA43262466E96300D04DE1 /* BlinkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43252466E96300D04DE1 /* BlinkingView.swift */; };
@@ -134,6 +135,7 @@
 		220914992465F52100481B27 /* FormTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextFieldStyle.swift; sourceTree = "<group>"; };
 		2209149E2465F89F00481B27 /* Amount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
 		22110A40246847E30094B4FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2249EB3124686DCC0023C8F4 /* CreditCardFormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormValidator.swift; sourceTree = "<group>"; };
 		22DA43212466E1F800D04DE1 /* PinPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPadView.swift; sourceTree = "<group>"; };
 		22DA43232466E30800D04DE1 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		22DA43252466E96300D04DE1 /* BlinkingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlinkingView.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				2209149E2465F89F00481B27 /* Amount.swift */,
+				2249EB3124686DCC0023C8F4 /* CreditCardFormValidator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				220914532465757700481B27 /* DonationResponse.swift in Sources */,
 				2209146224657A9B00481B27 /* FakeCharitiesAPI.swift in Sources */,
 				2209145C2465783800481B27 /* DonationsAPI.swift in Sources */,
+				2249EB3224686DCC0023C8F4 /* CreditCardFormValidator.swift in Sources */,
 				220914712465A83400481B27 /* DonationViewModel.swift in Sources */,
 				2209146524659B0500481B27 /* URLSession+.swift in Sources */,
 				2209146024657A8400481B27 /* FakeDonationsAPI.swift in Sources */,
