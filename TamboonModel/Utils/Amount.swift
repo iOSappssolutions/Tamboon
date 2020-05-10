@@ -73,8 +73,6 @@ public struct Amount {
     
     public func withAppendedSymbol(_ char: String) -> String {
         var currentStringValue = amountDescription()
-        //ifcurrentStringValue.lastIndex(of: Amount.getSymbol(code: "THB"))
-        
         if let range = currentStringValue.range(of: String(Amount.getSymbol(code: "THB") ?? "")) {
             
             if(range.upperBound == currentStringValue.endIndex) {
@@ -83,9 +81,6 @@ public struct Amount {
                 currentStringValue += char
             }
         }
-        
-        
-        
         
         return currentStringValue
     }

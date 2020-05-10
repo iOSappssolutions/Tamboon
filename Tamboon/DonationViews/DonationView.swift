@@ -14,57 +14,81 @@ struct DonationView: View {
     
     @ObservedObject var donationsViewModel: DonationViewModel
     @ObservedObject var keyboardHandler: KeyboardFollower = KeyboardFollower()
-    @State private var amount: String = "0"
-    @State private var name: String = ""
-    @State private var cardNumber: String = ""
     @ObservedObject private var expiryMonth = TextBindingManager(limit: 2)
     @ObservedObject private var expiryYear = TextBindingManager(limit: 4)
     @ObservedObject private var securityCode = TextBindingManager(limit: 4)
+    @State private var amount: String = "0"
+    @State private var name: String = ""
+    @State private var cardNumber: String = ""
     @State var isPinPadExpanded = false
+    @State var isCardActive = false
+    @State var isNameActive = false
+    @State var isMonthActive = false
+    @State var isYearActive = false
+    @State var isSecurityActive = false
+    
     @Binding var isDonationOpen: Bool
     
     var body: some View {
         ZStack {
             GeometryReader { geometry in
                 ScrollView(.vertical, showsIndicators: false) {
-                    VStack(spacing: 5) {
-                        FormTextField(title: "Card number",
+                    VStack(spacing: 0) {
+                        ZStack {
+                            HStack(spacing: 0) {
+                                Text(self.formatCreditCardLabel())
+                                BlinkingView()
+                                .opacity(self.isCardActive ? 1 : 0)
+                                .frame(height: 20)
+                                Spacer()
+                            }
+                            .padding()
+                            
+                            FormTextField(title: "Card number",
                                       placeHolder: "",
                                       getValidationMessage: DonationViewModel.getCardValidationMessage,
                                       textEntry: self.$cardNumber,
-                                      isPinPadExpanded: self.$isPinPadExpanded)
+                                      isPinPadExpanded: self.$isPinPadExpanded,
+                                      isActive: self.$isCardActive,
+                                      hideInput: true)
                             .keyboardType(.numberPad)
-                    
+                        }
+                       
+                        
                         FormTextField(title: "Name on card",
                                       placeHolder: "",
                                       getValidationMessage: DonationViewModel.getNameValidationMessage,
                                       textEntry: self.$name,
-                                      isPinPadExpanded: self.$isPinPadExpanded)
+                                      isPinPadExpanded: self.$isPinPadExpanded,
+                                      isActive: self.$isNameActive)
                         
         
-                        HStack(alignment: .top, spacing: 10) {
+                        HStack(alignment: .top, spacing: 5) {
                             HStack(spacing: 5) {
                                 FormTextField(title: "Expiry month",
                                               placeHolder: "MM",
                                               getValidationMessage: DonationViewModel.getExpiryMonthValidationMessage,
                                               textEntry: self.$expiryMonth.text,
-                                              isPinPadExpanded: self.$isPinPadExpanded)
+                                              isPinPadExpanded: self.$isPinPadExpanded,
+                                              isActive: self.$isMonthActive)
                                 .keyboardType(.numberPad)
                         
                                 FormTextField(title: "Expiry year",
                                               placeHolder: "YYYY",
                                               getValidationMessage: DonationViewModel.getExpiryYearValidationMessage,
                                               textEntry: self.$expiryYear.text,
-                                              isPinPadExpanded: self.$isPinPadExpanded)
+                                              isPinPadExpanded: self.$isPinPadExpanded,
+                                              isActive: self.$isYearActive)
                                 .keyboardType(.numberPad)
                             }
-                            .frame(width: (geometry.size.width / 3) * 1.8 )
+                            .frame(width: (geometry.size.width / 3) * 1.77 )
                             
                             FormTextField(title: "Security code",
                                           placeHolder: "",
                                           getValidationMessage: DonationViewModel.getSecurityCodeValidationMessage,
                                           textEntry: self.$securityCode.text,
-                                          isPinPadExpanded: self.$isPinPadExpanded)
+                                          isPinPadExpanded: self.$isPinPadExpanded,
+                                          isActive: self.$isSecurityActive)
                             .keyboardType(.numberPad)
                         }
 
@@ -73,7 +97,8 @@ struct DonationView: View {
                                        textEntry: self.$amount,
                                        isPinPadExpanded: self.$isPinPadExpanded)
 
-                            PayButton(isPayEnabled: self.isPayEnabled(), payAction: self.pay)
+                            PayButton(isPayEnabled: self.isPayEnabled(),
+                                      payAction: self.pay)
                                 .disabled(!self.isPayEnabled())
     
                             Spacer()
@@ -81,9 +106,9 @@ struct DonationView: View {
                     }
                     .offset(y: -1 * self.keyboardHandler.offset)
                     .padding()
-                        
                 }
             }
+            
             ToolBar(keyboardHandler: keyboardHandler)
         }
         .navigationBarTitle("", displayMode: .inline)
@@ -94,7 +119,11 @@ struct DonationView: View {
         .sheet(isPresented: $donationsViewModel.successDonation) {
             SuccessView(isDonationOpen: self.$isDonationOpen)
         }
-}
+    }
+    
+    func formatCreditCardLabel() -> String {
+        return cardNumber.separate(every: 4, with: " ")
+    }
     
     func isPayEnabled() -> Bool {
         return DonationViewModel.validateCardNumber(cardNumber)
@@ -124,3 +153,8 @@ struct DonationView_Previews: PreviewProvider {
     }
 }
 
+extension String {
+    func separate(every stride: Int = 4, with separator: Character = " ") -> String {
+        return String(enumerated().map { $0 > 0 && $0 % stride == 0 ? [separator, $1] : [$1]}.joined())
+    }
+}

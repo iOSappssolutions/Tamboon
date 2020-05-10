@@ -61,6 +61,8 @@
 		22DA43372467661100D04DE1 /* TextBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43362467661100D04DE1 /* TextBindingManager.swift */; };
 		22DA433D2467817300D04DE1 /* OmiseSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220914912465DE6F00481B27 /* OmiseSDK.framework */; };
 		22DA43412467880200D04DE1 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA43402467880200D04DE1 /* SuccessView.swift */; };
+		22DA4344246803C400D04DE1 /* UIResponder+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA4343246803C400D04DE1 /* UIResponder+Additions.swift */; };
+		22DA4346246803EC00D04DE1 /* UIApplication+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA4345246803EC00D04DE1 /* UIApplication+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,8 @@
 		22DA4334246764D600D04DE1 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 		22DA43362467661100D04DE1 /* TextBindingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBindingManager.swift; sourceTree = "<group>"; };
 		22DA43402467880200D04DE1 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		22DA4343246803C400D04DE1 /* UIResponder+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Additions.swift"; sourceTree = "<group>"; };
+		22DA4345246803EC00D04DE1 /* UIApplication+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +388,8 @@
 			children = (
 				2209148B2465C89800481B27 /* View+loading.swift */,
 				22DA4330246723B800D04DE1 /* Color+Addtions.swift */,
+				22DA4343246803C400D04DE1 /* UIResponder+Additions.swift */,
+				22DA4345246803EC00D04DE1 /* UIApplication+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -391,12 +397,12 @@
 		2209148D2465D6C700481B27 /* DonationViews */ = {
 			isa = PBXGroup;
 			children = (
+				22DA4342246801A700D04DE1 /* OmiseCreditCardFormWrapper */,
 				22DA432724670ED700D04DE1 /* Style */,
 				2209148E2465D6D400481B27 /* DonationView.swift */,
 				22DA432824670EF400D04DE1 /* FormTextField.swift */,
 				22DA432A24670F2900D04DE1 /* PayButton.swift */,
 				22DA432C24670F7B00D04DE1 /* AmountView.swift */,
-				220914942465DFF400481B27 /* OmiseCreditCardForm.swift */,
 				22DA43402467880200D04DE1 /* SuccessView.swift */,
 			);
 			path = DonationViews;
@@ -424,6 +430,14 @@
 				220914992465F52100481B27 /* FormTextFieldStyle.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		22DA4342246801A700D04DE1 /* OmiseCreditCardFormWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				220914942465DFF400481B27 /* OmiseCreditCardForm.swift */,
+			);
+			path = OmiseCreditCardFormWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,6 +578,8 @@
 				22DA433324675B2600D04DE1 /* DismissableTextField.swift in Sources */,
 				22DA4331246723B800D04DE1 /* Color+Addtions.swift in Sources */,
 				22DA4335246764D600D04DE1 /* ToolBar.swift in Sources */,
+				22DA4346246803EC00D04DE1 /* UIApplication+Additions.swift in Sources */,
+				22DA4344246803C400D04DE1 /* UIResponder+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

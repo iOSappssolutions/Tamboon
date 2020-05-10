@@ -16,7 +16,8 @@ struct FormTextField: View {
     @State var validationMessage: String? = nil
     @Binding var textEntry: String
     @Binding var isPinPadExpanded: Bool
-    @State var isActive = false
+    @Binding var isActive: Bool
+    var hideInput = false
     
     var body: some View {
         VStack {
@@ -35,7 +36,8 @@ struct FormTextField: View {
             }) {
                 self.didEndEditing()
             }
-            .modifier(FormTextFieldStyle(isActive: isActive))
+            .foregroundColor(hideInput ? .clear : .primary)
+            .modifier(FormTextFieldStyle(isActive: isActive, hideInput: hideInput))
             
             HStack {
                 Text(validationMessage ?? "")

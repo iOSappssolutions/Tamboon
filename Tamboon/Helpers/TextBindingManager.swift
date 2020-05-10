@@ -22,4 +22,3 @@ class TextBindingManager: ObservableObject {
         characterLimit = limit
     }
 }
-

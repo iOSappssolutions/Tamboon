@@ -10,11 +10,12 @@ import SwiftUI
 
 struct FormTextFieldStyle: ViewModifier {
     var isActive: Bool
+    var hideInput: Bool = false
     
     func body(content: Content) -> some View {
         content
             .padding(15)
-            .accentColor(Color("formAccentColor"))
+            .accentColor(hideInput ? .clear : Color("formAccentColor"))
             .background(
                 RoundedRectangle(cornerRadius: 5, style: .continuous)
                     .stroke(isActive ? Color("formAccentColor") : Color("formColor"), lineWidth: 2)

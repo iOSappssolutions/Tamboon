@@ -16,11 +16,13 @@ struct SuccessView: View {
     var body: some View {
         VStack {
             Text("Congrats! Donation has been placed")
+                .padding()
             
             Button("Dismiss") {
                 self.presentationMode.wrappedValue.dismiss()
                 self.isDonationOpen = false
             }
+            .padding()
         }
     }
 }
