@@ -15,7 +15,14 @@ public class FakeCharitiesAPI: CharitiesAPI {
     public var baseURL: String = T.baseURL
     
     func getCharities() -> AnyPublisher<CharitiesResponse, Error> {
-        return Empty<CharitiesResponse, Error>().eraseToAnyPublisher()
+        return Just(CharitiesResponse(total: 10, data: [Charity(id: 0,
+                                                                name: "test name",
+                                                                logoUrl: "http://www.adamandlianne.com/uploads/2/2/1/6/2216267/3231127.gif")]))
+            .mapError({_ in 
+                APIError.unexpectedResponse
+            })
+            .eraseToAnyPublisher()
+        
     }
 
     public init() {}

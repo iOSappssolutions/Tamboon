@@ -16,7 +16,11 @@ public class TamboonDC {
     public init() {}
     
     static func makeCharitiesRemoteAPI() -> CharitiesAPI {
-        return TamboonCharitiesAPI()
+        #if test
+            return FakeCharitiesAPI()
+        #else
+            return TamboonCharitiesAPI()
+        #endif
     }
     
     public static func makeCharitiesViewModel() -> CharitiesViewModel {
@@ -24,7 +28,11 @@ public class TamboonDC {
     }
         
     static func makeDonationsRemoteAPI() -> DonationsAPI {
-        return TamboonDonationsAPI()
+        #if test
+            return FakeDonationsAPI()
+        #else
+            return TamboonDonationsAPI()
+        #endif
     }
     
     public static func makeDonationsViewModel(forCharity: Charity) -> DonationViewModel {
