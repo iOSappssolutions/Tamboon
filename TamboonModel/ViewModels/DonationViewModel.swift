@@ -68,13 +68,15 @@ public final class DonationViewModel: ObservableObject {
                     year: String,
                     amount: String) {
         
+        guard let month = Int(month), let year = Int(year) else { return }
+        
         let client = OmiseSDK.Client.init(publicKey: T.omiseKey)
         
         let tokenParameters = Token.CreateParameter(
             name: name,
             number: creditCard,
-            expirationMonth: Int(month)!,
-            expirationYear: Int(year)!,
+            expirationMonth: month,
+            expirationYear: year,
             securityCode: cvv
         )
         
