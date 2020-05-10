@@ -24,6 +24,10 @@ struct CharitiesView: View {
                         .opacity(charitiesViewModel.isLoading ? 0 : 1)
                 }
             }
+            .loading(isLoading: $charitiesViewModel.isLoading)
+            .alert(item: $charitiesViewModel.alertMessage) { message in
+                Alert(title: Text(message.message), dismissButton: .cancel())
+            }
             .navigationBarTitle(C.charities)
             
         }

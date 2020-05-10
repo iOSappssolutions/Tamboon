@@ -17,11 +17,12 @@ struct CharityRow: View {
         GeometryReader { geometry in
             HStack {
                 URLImage(url: self.charity.logoUrl)
-                .frame(width: geometry.size.width / 4)
+                .frame(width: geometry.size.height / 4 * 3)
                 .clipped()
                 .cornerRadius(5)
                 
                 Text(self.charity.name)
+                    .font(.headline)
                 
                 Spacer()
             }

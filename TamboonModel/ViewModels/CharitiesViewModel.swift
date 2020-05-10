@@ -37,7 +37,7 @@ public final class CharitiesViewModel: ObservableObject {
             }
             self.isLoading = false
             
-        }) { (charitiesResponse) in
+        }) { [unowned self] (charitiesResponse) in
             
             self.charities = charitiesResponse.data
             

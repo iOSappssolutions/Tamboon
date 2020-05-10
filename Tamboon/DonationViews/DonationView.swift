@@ -26,7 +26,6 @@ struct DonationView: View {
     @State var isMonthActive = false
     @State var isYearActive = false
     @State var isSecurityActive = false
-    
     @Binding var isDonationOpen: Bool
     
     var body: some View {
@@ -117,7 +116,8 @@ struct DonationView: View {
             Alert(title: Text(message.message), dismissButton: .cancel())
         }
         .sheet(isPresented: $donationsViewModel.successDonation) {
-            SuccessView(isDonationOpen: self.$isDonationOpen)
+            SuccessView(isDonationOpen: self.$isDonationOpen,
+                        message: self.donationsViewModel.donation?.errorMessage ?? C.successMessage)
         }
     }
     
@@ -131,7 +131,7 @@ struct DonationView: View {
             && DonationViewModel.validateExpiryYear(expiryYear.text)
             && DonationViewModel.validateExpiryMonth(expiryMonth.text)
             && DonationViewModel.validateSecurityCode(securityCode.text)
-            && Double(amount) ?? 0 > 0
+            && Int(amount) ?? 0 > 0
     }
     
     func pay() {

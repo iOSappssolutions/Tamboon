@@ -53,7 +53,7 @@ struct ImageLoadingView<Content>: View where Content: View {
                     .blur(radius: self.isShowing ? 3 : 0)
                
                 
-                AnimatedGradientView1(width: geometry.size.width, height: geometry.size.height)
+                AnimatedGradientView(width: geometry.size.width, height: geometry.size.height)
                 .opacity(self.isShowing ? 1 : 0)
 
             }
@@ -76,7 +76,7 @@ struct ActivityIndicator: UIViewRepresentable {
     }
 }
 
-struct AnimatedGradientView1: View {
+struct AnimatedGradientView: View {
     
     @State var gradient = [Color(.white), Color(.purple)]
     @State var startPoint = UnitPoint(x: 0, y: 0)

@@ -15,6 +15,7 @@ public final class DonationViewModel: ObservableObject {
     // MARK: properties
     
     private let donationApi: DonationsAPI
+    public var donation: DonationResponse? = nil
     @Published public var successDonation: Bool = false
     @Published public var isLoading: Bool = false
     @Published public var alertMessage: Message? = nil
@@ -46,10 +47,11 @@ public final class DonationViewModel: ObservableObject {
             }
             self.isLoading = false
             
-        }) { (donationResponse) in
+        }) { [unowned self] (donationResponse) in
             
             if(donationResponse.success) {
                 self.successDonation = true
+                self.donation = donationResponse
             } else {
                 self.alertMessage = Message(id: 0, message: donationResponse.errorMessage ?? "")
             }

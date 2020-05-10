@@ -22,7 +22,8 @@ struct CharityList: View {
                                isActive: self.$isDonationOpen) {
                                 
                      CharityRow(charity: charity)
-                        .frame(height: ((geometry.size.width / 4) / 2) * 3)
+                        .frame(height: geometry.size.height / 5)
+                        //.frame(height: ((geometry.size.width / 4) / 2) * 3)
                 }
             }
         }

@@ -40,8 +40,7 @@ struct GridView<Content, T>: View where Content: View {
                                 Group {
                                     if self.elementFor(row: row, column: column) != nil {
                                         self.content(self.items[self.elementFor(row: row, column: column)!])
-                                        .frame(width: ((geometry.size.width / CGFloat(self.columns)) - (5 * (CGFloat(self.columns) - 1))),
-                                        height: 50)
+                                        .frame(width: ((geometry.size.width / CGFloat(self.columns)) - (5 * (CGFloat(self.columns) - 1))))
                                     } else {
                                         Spacer()
                                     }

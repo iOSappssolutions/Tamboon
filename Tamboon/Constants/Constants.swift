@@ -30,7 +30,7 @@ struct C {
     // MARK: Button title constants
     
     static let pay = "Pay"
-    static let dismiss = "Dismiss"
+    static let dismiss = "Dismiss to root"
     static let clear = "Clear"
     static let done = "Done"
     

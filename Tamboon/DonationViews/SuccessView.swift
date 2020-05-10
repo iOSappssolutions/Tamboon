@@ -12,10 +12,11 @@ struct SuccessView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var isDonationOpen: Bool
+    var message: String
     
     var body: some View {
         VStack {
-            Text(C.successMessage)
+            Text(message)
                 .padding()
             
             Button(C.dismiss) {
@@ -29,6 +30,6 @@ struct SuccessView: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        SuccessView(isDonationOpen: .constant(true))
+        SuccessView(isDonationOpen: .constant(true), message: "test")
     }
 }
