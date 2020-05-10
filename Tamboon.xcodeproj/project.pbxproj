@@ -192,6 +192,7 @@
 		2209141B24656AE900481B27 /* Tamboon */ = {
 			isa = PBXGroup;
 			children = (
+				22110A3F2468478C0094B4FB /* Constants */,
 				2209148D2465D6C700481B27 /* DonationViews */,
 				2209148A2465C88400481B27 /* Extensions */,
 				220914872465C77200481B27 /* CharityViews */,
@@ -422,6 +423,13 @@
 				2209149E2465F89F00481B27 /* Amount.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		22110A3F2468478C0094B4FB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		22DA432724670ED700D04DE1 /* Style */ = {

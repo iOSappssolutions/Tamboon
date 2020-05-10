@@ -15,7 +15,6 @@ struct AmountView: View {
     @Binding var textEntry: String
     @Binding var isPinPadExpanded: Bool
 
-    
     var body: some View {
         VStack {
             HStack {
@@ -48,32 +47,7 @@ struct AmountView: View {
             PinPadView(currentOutput: $textEntry, isExpanded: $isPinPadExpanded)
                 .frame(height: isPinPadExpanded ? 250 : 0)
         }
-    
-
     }
-    
-//    private func formatAmount() -> String {
-//        var hasDecimal = false
-//        var text = textEntry
-//
-//        // if last char is decimal separator remove it temporary
-//        if let last = textEntry.last {
-//            if(String(last) == "." ) {
-//                hasDecimal = true
-//                _ = text.popLast()
-//            }
-//        }
-//
-//        let amount = Amount(amount: Double(text) ?? 0, currency: "THB")
-//        var formattedAmount = amount.amountDescription()
-//
-//        // append decimal point if it was previously removed prior to formatting
-//        if(hasDecimal) {
-//            formattedAmount = amount.withAppendedSymbol(".")
-//        }
-//
-//        return formattedAmount
-//    }
     
     private func togglePinPad() {
 

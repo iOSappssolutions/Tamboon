@@ -31,7 +31,6 @@ class KeyboardFollower : ObservableObject {
                 toolBarPosition = 0
             }
         }
-        
     }
   }
 }

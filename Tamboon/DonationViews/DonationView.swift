@@ -104,7 +104,7 @@ struct DonationView: View {
                             Spacer()
                         }
                     }
-                    .offset(y: -1 * self.keyboardHandler.offset)
+                    .offset(y: self.isPinPadExpanded && geometry.size.height < 667 ? -1 * 250 : -1 * self.keyboardHandler.offset)
                     .padding()
                 }
             }
